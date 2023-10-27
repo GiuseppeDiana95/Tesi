@@ -6,10 +6,12 @@
   </head>
   <body>
     <div id="demo"></div>
-    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.conversejs.org/10.1.4/dist/converse.min.css">
-    <script src="https://cdn.conversejs.org/10.1.4/dist/converse.min.js" charset="utf-8"></script>
-    <!--<script type='text/javascript' src='strophe.umd.js'></script>
-    <script type='text/javascript' src='echobot2.js'></script>-->
+    <script type='text/javascript' src='strophe.muc.js'></script>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.conversejs.org/dist/converse.min.css">
+    <script src="https://cdn.conversejs.org/dist/converse.min.js" charset="utf-8"></script>
+
+    <script type="module"  src='echobot2.mjs'></script>
     <script>
       var aut = converse.initialize({
         bosh_service_url: 'http://localhost:5280/http-bind/',
@@ -24,7 +26,7 @@
     });
       console.log('aut:',aut);
     </script>
-      <div id="viewer"/>;
+      <div id="viewer"/>
     <script src="../src/index.js"></script>
   </body>
 </html>

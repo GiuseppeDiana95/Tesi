@@ -68248,7 +68248,7 @@ var define;
 var global = arguments[3];
 function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof2(o); }
 (function (global, factory) {
-  (typeof exports === "undefined" ? "undefined" : _typeof2(exports)) === 'object' && typeof module !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : (global = global || self, global.strophe = factory());
+  (typeof exports === "undefined" ? "undefined" : _typeof2(exports)) === 'object' && typeof module !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : (global = global || self, global.Strophe2 = factory());
 })(this, function () {
   'use strict';
 
@@ -68284,7 +68284,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
   /*
    * This module provides uniform
    * Shims APIs and globals that are not present in all JS environments,
-   * the most common example for Strophe being browser APIs like WebSocket
+   * the most common example for Strophe2 being browser APIs like WebSocket
    * and DOM that don't exist under nodejs.
    *
    * Usually these will be supplied in nodejs by conditionally requiring a
@@ -68312,7 +68312,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       try {
         WebSocketImplementation = require('ws');
       } catch (err) {
-        throw new Error('You must install the "ws" package to use Strophe in nodejs.');
+        throw new Error('You must install the "ws" package to use Strophe2 in nodejs.');
       }
     }
     return WebSocketImplementation;
@@ -68337,7 +68337,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       try {
         DOMParserImplementation = require('xmldom').DOMParser;
       } catch (err) {
-        throw new Error('You must install the "xmldom" package to use Strophe in nodejs.');
+        throw new Error('You must install the "xmldom" package to use Strophe2 in nodejs.');
       }
     }
     return DOMParserImplementation;
@@ -68378,19 +68378,19 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     if (typeof document === 'undefined') {
       try {
         var DOMImplementation = require('xmldom').DOMImplementation;
-        return new DOMImplementation().createDocument('jabber:client', 'strophe', null);
+        return new DOMImplementation().createDocument('jabber:client', 'Strophe2', null);
       } catch (err) {
-        throw new Error('You must install the "xmldom" package to use Strophe in nodejs.');
+        throw new Error('You must install the "xmldom" package to use Strophe2 in nodejs.');
       }
     } // IE < 10
 
     if (document.implementation.createDocument === undefined || document.implementation.createDocument && document.documentMode && document.documentMode < 10) {
       var doc = _getIEXmlDom();
-      doc.appendChild(doc.createElement('strophe'));
+      doc.appendChild(doc.createElement('Strophe2'));
       return doc;
     } // All other supported browsers
 
-    return document.implementation.createDocument('jabber:client', 'strophe', null);
+    return document.implementation.createDocument('jabber:client', 'Strophe2', null);
   }
 
   /**
@@ -68580,7 +68580,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    */
 
   /*
-   * Everything that isn't used by Strophe has been stripped here!
+   * Everything that isn't used by Strophe2 has been stripped here!
    */
 
   /*
@@ -68770,7 +68770,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
 
   /* global define */
 
-  /* Some functions and variables have been stripped for use with Strophe */
+  /* Some functions and variables have been stripped for use with Strophe2 */
 
   /*
    * Calculate the SHA-1 of an array of big-endian words, and a bit length
@@ -68975,7 +68975,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
        *      }
        *  }
        *
-       *  These values get passed to Strophe.Connection via
+       *  These values get passed to Strophe2.Connection via
        *   options.cookies
        */
       cookies = cookies || {};
@@ -68999,68 +68999,68 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
   };
 
   /** Function: $build
-   *  Create a Strophe.Builder.
-   *  This is an alias for 'new Strophe.Builder(name, attrs)'.
+   *  Create a Strophe2.Builder.
+   *  This is an alias for 'new Strophe2.Builder(name, attrs)'.
    *
    *  Parameters:
    *    (String) name - The root element name.
    *    (Object) attrs - The attributes for the root element in object notation.
    *
    *  Returns:
-   *    A new Strophe.Builder object.
+   *    A new Strophe2.Builder object.
    */
 
   function $build(name, attrs) {
-    return new Strophe.Builder(name, attrs);
+    return new Strophe2.Builder(name, attrs);
   }
   /** Function: $msg
-   *  Create a Strophe.Builder with a <message/> element as the root.
+   *  Create a Strophe2.Builder with a <message/> element as the root.
    *
    *  Parameters:
    *    (Object) attrs - The <message/> element attributes in object notation.
    *
    *  Returns:
-   *    A new Strophe.Builder object.
+   *    A new Strophe2.Builder object.
    */
 
   function $msg(attrs) {
-    return new Strophe.Builder("message", attrs);
+    return new Strophe2.Builder("message", attrs);
   }
   /** Function: $iq
-   *  Create a Strophe.Builder with an <iq/> element as the root.
+   *  Create a Strophe2.Builder with an <iq/> element as the root.
    *
    *  Parameters:
    *    (Object) attrs - The <iq/> element attributes in object notation.
    *
    *  Returns:
-   *    A new Strophe.Builder object.
+   *    A new Strophe2.Builder object.
    */
 
   function $iq(attrs) {
-    return new Strophe.Builder("iq", attrs);
+    return new Strophe2.Builder("iq", attrs);
   }
   /** Function: $pres
-   *  Create a Strophe.Builder with a <presence/> element as the root.
+   *  Create a Strophe2.Builder with a <presence/> element as the root.
    *
    *  Parameters:
    *    (Object) attrs - The <presence/> element attributes in object notation.
    *
    *  Returns:
-   *    A new Strophe.Builder object.
+   *    A new Strophe2.Builder object.
    */
 
   function $pres(attrs) {
-    return new Strophe.Builder("presence", attrs);
+    return new Strophe2.Builder("presence", attrs);
   }
-  /** Class: Strophe
-   *  An object container for all Strophe library functions.
+  /** Class: Strophe2
+   *  An object container for all Strophe2 library functions.
    *
    *  This class is just a container for all the objects and constants
    *  used in the library.  It is not meant to be instantiated, but to
    *  provide a namespace for library objects, constants, and functions.
    */
 
-  var Strophe = {
+  var Strophe2 = {
     /** Constant: VERSION */
     VERSION: "@VERSION@",
     /** Constants: XMPP Namespace Constants
@@ -69134,8 +69134,8 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
        * XHTML tag names are case sensitive and must be lower case.
        */
       validTag: function validTag(tag) {
-        for (var i = 0; i < Strophe.XHTML.tags.length; i++) {
-          if (tag === Strophe.XHTML.tags[i]) {
+        for (var i = 0; i < Strophe2.XHTML.tags.length; i++) {
+          if (tag === Strophe2.XHTML.tags[i]) {
             return true;
           }
         }
@@ -69149,9 +69149,9 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
        * XHTML attribute names are case sensitive and must be lower case.
        */
       validAttribute: function validAttribute(tag, attribute) {
-        if (typeof Strophe.XHTML.attributes[tag] !== 'undefined' && Strophe.XHTML.attributes[tag].length > 0) {
-          for (var i = 0; i < Strophe.XHTML.attributes[tag].length; i++) {
-            if (attribute === Strophe.XHTML.attributes[tag][i]) {
+        if (typeof Strophe2.XHTML.attributes[tag] !== 'undefined' && Strophe2.XHTML.attributes[tag].length > 0) {
+          for (var i = 0; i < Strophe2.XHTML.attributes[tag].length; i++) {
+            if (attribute === Strophe2.XHTML.attributes[tag][i]) {
               return true;
             }
           }
@@ -69159,8 +69159,8 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         return false;
       },
       validCSS: function validCSS(style) {
-        for (var i = 0; i < Strophe.XHTML.css.length; i++) {
-          if (style === Strophe.XHTML.css[i]) {
+        for (var i = 0; i < Strophe2.XHTML.css.length; i++) {
+          if (style === Strophe2.XHTML.css[i]) {
             return true;
           }
         }
@@ -69200,7 +69200,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     ErrorCondition: {
       BAD_FORMAT: "bad-format",
       CONFLICT: "conflict",
-      MISSING_JID_NODE: "x-strophe-bad-non-anon-jid",
+      MISSING_JID_NODE: "x-Strophe2-bad-non-anon-jid",
       NO_AUTH_MECH: "no-auth-mech",
       UNKNOWN_REASON: "unknown"
     },
@@ -69242,7 +69242,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *      failed after Math.floor(TIMEOUT * wait) seconds have elapsed.
      *      This defaults to 1.1, and with default wait, 66 seconds.
      *  SECONDARY_TIMEOUT - Secondary timeout multiplier. In cases where
-     *      Strophe can detect early failure, it will consider the request
+     *      Strophe2 can detect early failure, it will consider the request
      *      failed if it doesn't return after
      *      Math.floor(SECONDARY_TIMEOUT * wait) seconds have elapsed.
      *      This defaults to 0.1, and with default wait, 6 seconds.
@@ -69251,18 +69251,18 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     SECONDARY_TIMEOUT: 0.1,
     /** Function: addNamespace
      *  This function is used to extend the current namespaces in
-     *  Strophe.NS.  It takes a key and a value with the key being the
+     *  Strophe2.NS.  It takes a key and a value with the key being the
      *  name of the new namespace, with its actual value.
      *  For example:
-     *  Strophe.addNamespace('PUBSUB', "http://jabber.org/protocol/pubsub");
+     *  Strophe2.addNamespace('PUBSUB', "http://jabber.org/protocol/pubsub");
      *
      *  Parameters:
      *    (String) name - The name under which the namespace will be
-     *      referenced under Strophe.NS
+     *      referenced under Strophe2.NS
      *    (String) value - The actual namespace.
      */
     addNamespace: function addNamespace(name, value) {
-      Strophe.NS[name] = value;
+      Strophe2.NS[name] = value;
     },
     /** Function: forEachChild
      *  Map a function over some or all child elements of a given element.
@@ -69281,7 +69281,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     forEachChild: function forEachChild(elem, elemName, func) {
       for (var i = 0; i < elem.childNodes.length; i++) {
         var childNode = elem.childNodes[i];
-        if (childNode.nodeType === Strophe.ElementType.NORMAL && (!elemName || this.isTagEqual(childNode, elemName))) {
+        if (childNode.nodeType === Strophe2.ElementType.NORMAL && (!elemName || this.isTagEqual(childNode, elemName))) {
           func(childNode);
         }
       }
@@ -69314,10 +69314,10 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    The currently used DOM document.
      */
     xmlGenerator: function xmlGenerator() {
-      if (!Strophe._xmlGenerator) {
-        Strophe._xmlGenerator = getDummyXMLDOMDocument();
+      if (!Strophe2._xmlGenerator) {
+        Strophe2._xmlGenerator = getDummyXMLDOMDocument();
       }
-      return Strophe._xmlGenerator;
+      return Strophe2._xmlGenerator;
     },
     /** Function: xmlElement
      *  Create an XML DOM element.
@@ -69341,7 +69341,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       if (!name) {
         return null;
       }
-      var node = Strophe.xmlGenerator().createElement(name); // FIXME: this should throw errors if args are the wrong type or
+      var node = Strophe2.xmlGenerator().createElement(name); // FIXME: this should throw errors if args are the wrong type or
       // there are more than two optional args
 
       for (var a = 1; a < arguments.length; a++) {
@@ -69350,7 +69350,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
           continue;
         }
         if (typeof arg === "string" || typeof arg === "number") {
-          node.appendChild(Strophe.xmlTextNode(arg));
+          node.appendChild(Strophe2.xmlTextNode(arg));
         } else if (_typeof(arg) === "object" && typeof arg.sort === "function") {
           for (var i = 0; i < arg.length; i++) {
             var attr = arg[i];
@@ -69414,7 +69414,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    A new XML DOM text node.
      */
     xmlTextNode: function xmlTextNode(text) {
-      return Strophe.xmlGenerator().createTextNode(text);
+      return Strophe2.xmlGenerator().createTextNode(text);
     },
     /** Function: xmlHtmlNode
      *  Creates an XML DOM html node.
@@ -69452,15 +69452,15 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         return null;
       }
       var str = "";
-      if (elem.childNodes.length === 0 && elem.nodeType === Strophe.ElementType.TEXT) {
+      if (elem.childNodes.length === 0 && elem.nodeType === Strophe2.ElementType.TEXT) {
         str += elem.nodeValue;
       }
       for (var i = 0; i < elem.childNodes.length; i++) {
-        if (elem.childNodes[i].nodeType === Strophe.ElementType.TEXT) {
+        if (elem.childNodes[i].nodeType === Strophe2.ElementType.TEXT) {
           str += elem.childNodes[i].nodeValue;
         }
       }
-      return Strophe.xmlescape(str);
+      return Strophe2.xmlescape(str);
     },
     /** Function: copyElement
      *  Copy an XML DOM element.
@@ -69476,16 +69476,16 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      */
     copyElement: function copyElement(elem) {
       var el;
-      if (elem.nodeType === Strophe.ElementType.NORMAL) {
-        el = Strophe.xmlElement(elem.tagName);
+      if (elem.nodeType === Strophe2.ElementType.NORMAL) {
+        el = Strophe2.xmlElement(elem.tagName);
         for (var i = 0; i < elem.attributes.length; i++) {
           el.setAttribute(elem.attributes[i].nodeName, elem.attributes[i].value);
         }
         for (var _i = 0; _i < elem.childNodes.length; _i++) {
-          el.appendChild(Strophe.copyElement(elem.childNodes[_i]));
+          el.appendChild(Strophe2.copyElement(elem.childNodes[_i]));
         }
-      } else if (elem.nodeType === Strophe.ElementType.TEXT) {
-        el = Strophe.xmlGenerator().createTextNode(elem.nodeValue);
+      } else if (elem.nodeType === Strophe2.ElementType.TEXT) {
+        el = Strophe2.xmlGenerator().createTextNode(elem.nodeValue);
       }
       return el;
     },
@@ -69503,14 +69503,14 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      */
     createHtml: function createHtml(elem) {
       var el;
-      if (elem.nodeType === Strophe.ElementType.NORMAL) {
+      if (elem.nodeType === Strophe2.ElementType.NORMAL) {
         var tag = elem.nodeName.toLowerCase(); // XHTML tags must be lower case.
 
-        if (Strophe.XHTML.validTag(tag)) {
+        if (Strophe2.XHTML.validTag(tag)) {
           try {
-            el = Strophe.xmlElement(tag);
-            for (var i = 0; i < Strophe.XHTML.attributes[tag].length; i++) {
-              var attribute = Strophe.XHTML.attributes[tag][i];
+            el = Strophe2.xmlElement(tag);
+            for (var i = 0; i < Strophe2.XHTML.attributes[tag].length; i++) {
+              var attribute = Strophe2.XHTML.attributes[tag][i];
               var value = elem.getAttribute(attribute);
               if (typeof value === 'undefined' || value === null || value === '' || value === false || value === 0) {
                 continue;
@@ -69525,7 +69525,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
                 for (var j = 0; j < cssAttrs.length; j++) {
                   var attr = cssAttrs[j].split(':');
                   var cssName = attr[0].replace(/^\s*/, "").replace(/\s*$/, "").toLowerCase();
-                  if (Strophe.XHTML.validCSS(cssName)) {
+                  if (Strophe2.XHTML.validCSS(cssName)) {
                     var cssValue = attr[1].replace(/^\s*/, "").replace(/\s*$/, "");
                     css.push(cssName + ': ' + cssValue);
                   }
@@ -69539,25 +69539,25 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
               }
             }
             for (var _i2 = 0; _i2 < elem.childNodes.length; _i2++) {
-              el.appendChild(Strophe.createHtml(elem.childNodes[_i2]));
+              el.appendChild(Strophe2.createHtml(elem.childNodes[_i2]));
             }
           } catch (e) {
             // invalid elements
-            el = Strophe.xmlTextNode('');
+            el = Strophe2.xmlTextNode('');
           }
         } else {
-          el = Strophe.xmlGenerator().createDocumentFragment();
+          el = Strophe2.xmlGenerator().createDocumentFragment();
           for (var _i3 = 0; _i3 < elem.childNodes.length; _i3++) {
-            el.appendChild(Strophe.createHtml(elem.childNodes[_i3]));
+            el.appendChild(Strophe2.createHtml(elem.childNodes[_i3]));
           }
         }
-      } else if (elem.nodeType === Strophe.ElementType.FRAGMENT) {
-        el = Strophe.xmlGenerator().createDocumentFragment();
+      } else if (elem.nodeType === Strophe2.ElementType.FRAGMENT) {
+        el = Strophe2.xmlGenerator().createDocumentFragment();
         for (var _i4 = 0; _i4 < elem.childNodes.length; _i4++) {
-          el.appendChild(Strophe.createHtml(elem.childNodes[_i4]));
+          el.appendChild(Strophe2.createHtml(elem.childNodes[_i4]));
         }
-      } else if (elem.nodeType === Strophe.ElementType.TEXT) {
-        el = Strophe.xmlTextNode(elem.nodeValue);
+      } else if (elem.nodeType === Strophe2.ElementType.TEXT) {
+        el = Strophe2.xmlTextNode(elem.nodeValue);
       }
       return el;
     },
@@ -69616,7 +69616,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    A String containing the domain.
      */
     getDomainFromJid: function getDomainFromJid(jid) {
-      var bare = Strophe.getBareJidFromJid(jid);
+      var bare = Strophe2.getBareJidFromJid(jid);
       if (bare.indexOf("@") < 0) {
         return bare;
       } else {
@@ -69662,29 +69662,29 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      */
     _handleError: function _handleError(e) {
       if (typeof e.stack !== "undefined") {
-        Strophe.fatal(e.stack);
+        Strophe2.fatal(e.stack);
       }
       if (e.sourceURL) {
-        Strophe.fatal("error: " + this.handler + " " + e.sourceURL + ":" + e.line + " - " + e.name + ": " + e.message);
+        Strophe2.fatal("error: " + this.handler + " " + e.sourceURL + ":" + e.line + " - " + e.name + ": " + e.message);
       } else if (e.fileName) {
-        Strophe.fatal("error: " + this.handler + " " + e.fileName + ":" + e.lineNumber + " - " + e.name + ": " + e.message);
+        Strophe2.fatal("error: " + this.handler + " " + e.fileName + ":" + e.lineNumber + " - " + e.name + ": " + e.message);
       } else {
-        Strophe.fatal("error: " + e.message);
+        Strophe2.fatal("error: " + e.message);
       }
     },
     /** Function: log
      *  User overrideable logging function.
      *
-     *  This function is called whenever the Strophe library calls any
+     *  This function is called whenever the Strophe2 library calls any
      *  of the logging functions.  The default implementation of this
      *  function logs only fatal errors.  If client code wishes to handle the logging
      *  messages, it should override this with
-     *  > Strophe.log = function (level, msg) {
+     *  > Strophe2.log = function (level, msg) {
      *  >   (user code here)
      *  > };
      *
      *  Please note that data sent and received over the wire is logged
-     *  via Strophe.Connection.rawInput() and Strophe.Connection.rawOutput().
+     *  via Strophe2.Connection.rawInput() and Strophe2.Connection.rawOutput().
      *
      *  The different levels and their meanings are
      *
@@ -69698,7 +69698,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *
      *  Parameters:
      *    (Integer) level - The log level of the log message.  This will
-     *      be one of the values in Strophe.LogLevel.
+     *      be one of the values in Strophe2.LogLevel.
      *    (String) msg - The log message.
      */
     log: function log(level, msg) {
@@ -69707,7 +69707,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       }
     },
     /** Function: debug
-     *  Log a message at the Strophe.LogLevel.DEBUG level.
+     *  Log a message at the Strophe2.LogLevel.DEBUG level.
      *
      *  Parameters:
      *    (String) msg - The log message.
@@ -69716,7 +69716,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       this.log(this.LogLevel.DEBUG, msg);
     },
     /** Function: info
-     *  Log a message at the Strophe.LogLevel.INFO level.
+     *  Log a message at the Strophe2.LogLevel.INFO level.
      *
      *  Parameters:
      *    (String) msg - The log message.
@@ -69725,7 +69725,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       this.log(this.LogLevel.INFO, msg);
     },
     /** Function: warn
-     *  Log a message at the Strophe.LogLevel.WARN level.
+     *  Log a message at the Strophe2.LogLevel.WARN level.
      *
      *  Parameters:
      *    (String) msg - The log message.
@@ -69734,7 +69734,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       this.log(this.LogLevel.WARN, msg);
     },
     /** Function: error
-     *  Log a message at the Strophe.LogLevel.ERROR level.
+     *  Log a message at the Strophe2.LogLevel.ERROR level.
      *
      *  Parameters:
      *    (String) msg - The log message.
@@ -69743,7 +69743,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       this.log(this.LogLevel.ERROR, msg);
     },
     /** Function: fatal
-     *  Log a message at the Strophe.LogLevel.FATAL level.
+     *  Log a message at the Strophe2.LogLevel.FATAL level.
      *
      *  Parameters:
      *    (String) msg - The log message.
@@ -69772,22 +69772,22 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       });
       names.sort();
       var result = names.reduce(function (a, n) {
-        return "".concat(a, " ").concat(n, "=\"").concat(Strophe.xmlescape(elem.attributes.getNamedItem(n).value), "\"");
+        return "".concat(a, " ").concat(n, "=\"").concat(Strophe2.xmlescape(elem.attributes.getNamedItem(n).value), "\"");
       }, "<".concat(elem.nodeName));
       if (elem.childNodes.length > 0) {
         result += ">";
         for (var i = 0; i < elem.childNodes.length; i++) {
           var child = elem.childNodes[i];
           switch (child.nodeType) {
-            case Strophe.ElementType.NORMAL:
+            case Strophe2.ElementType.NORMAL:
               // normal element, so recurse
-              result += Strophe.serialize(child);
+              result += Strophe2.serialize(child);
               break;
-            case Strophe.ElementType.TEXT:
+            case Strophe2.ElementType.TEXT:
               // text element to escape values
-              result += Strophe.xmlescape(child.nodeValue);
+              result += Strophe2.xmlescape(child.nodeValue);
               break;
-            case Strophe.ElementType.CDATA:
+            case Strophe2.ElementType.CDATA:
               // cdata section so don't escape values
               result += "<![CDATA[" + child.nodeValue + "]]>";
           }
@@ -69803,23 +69803,23 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  connections.
      */
     _requestId: 0,
-    /** PrivateVariable: Strophe.connectionPlugins
+    /** PrivateVariable: Strophe2.connectionPlugins
      *  _Private_ variable Used to store plugin names that need
-     *  initialization on Strophe.Connection construction.
+     *  initialization on Strophe2.Connection construction.
      */
     _connectionPlugins: {},
     /** Function: addConnectionPlugin
-     *  Extends the Strophe.Connection object with the given plugin.
+     *  Extends the Strophe2.Connection object with the given plugin.
      *
      *  Parameters:
      *    (String) name - The name of the extension.
      *    (Object) ptype - The plugin's prototype.
      */
     addConnectionPlugin: function addConnectionPlugin(name, ptype) {
-      Strophe._connectionPlugins[name] = ptype;
+      Strophe2._connectionPlugins[name] = ptype;
     }
   };
-  /** Class: Strophe.Builder
+  /** Class: Strophe2.Builder
    *  XML DOM builder.
    *
    *  This object provides an interface similar to JQuery but for building
@@ -69827,13 +69827,13 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *  and tree() return the object, so calls can be chained.  Here's an
    *  example using the $iq() builder helper.
    *  > $iq({to: 'you', from: 'me', type: 'get', id: '1'})
-   *  >     .c('query', {xmlns: 'strophe:example'})
+   *  >     .c('query', {xmlns: 'Strophe2:example'})
    *  >     .c('example')
    *  >     .toString()
    *
    *  The above generates this XML fragment
    *  > <iq to='you' from='me' type='get' id='1'>
-   *  >   <query xmlns='strophe:example'>
+   *  >   <query xmlns='Strophe2:example'>
    *  >     <example/>
    *  >   </query>
    *  > </iq>
@@ -69846,8 +69846,8 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *  The next operation on the Builder will be relative to the second child.
    */
 
-  /** Constructor: Strophe.Builder
-   *  Create a Strophe.Builder object.
+  /** Constructor: Strophe2.Builder
+   *  Create a Strophe2.Builder object.
    *
    *  The attributes should be passed in object notation.  For example
    *  > let b = new Builder('message', {to: 'you', from: 'me'});
@@ -69859,31 +69859,31 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *    (Object) attrs - The attributes for the root element in object notation.
    *
    *  Returns:
-   *    A new Strophe.Builder.
+   *    A new Strophe2.Builder.
    */
 
-  Strophe.Builder = function (name, attrs) {
+  Strophe2.Builder = function (name, attrs) {
     // Set correct namespace for jabber:client elements
     if (name === "presence" || name === "message" || name === "iq") {
       if (attrs && !attrs.xmlns) {
-        attrs.xmlns = Strophe.NS.CLIENT;
+        attrs.xmlns = Strophe2.NS.CLIENT;
       } else if (!attrs) {
         attrs = {
-          xmlns: Strophe.NS.CLIENT
+          xmlns: Strophe2.NS.CLIENT
         };
       }
     } // Holds the tree being built.
 
-    this.nodeTree = Strophe.xmlElement(name, attrs); // Points to the current operation node.
+    this.nodeTree = Strophe2.xmlElement(name, attrs); // Points to the current operation node.
 
     this.node = this.nodeTree;
   };
-  Strophe.Builder.prototype = {
+  Strophe2.Builder.prototype = {
     /** Function: tree
      *  Return the DOM tree.
      *
      *  This function returns the current DOM tree as an element object.  This
-     *  is suitable for passing to functions like Strophe.Connection.send().
+     *  is suitable for passing to functions like Strophe2.Connection.send().
      *
      *  Returns:
      *    The DOM tree as a element object.
@@ -69896,13 +69896,13 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *
      *  This function returns a string serialization of the current DOM
      *  tree.  It is often used internally to pass data to a
-     *  Strophe.Request object.
+     *  Strophe2.Request object.
      *
      *  Returns:
      *    The serialized DOM tree in a String.
      */
     toString: function toString() {
-      return Strophe.serialize(this.nodeTree);
+      return Strophe2.serialize(this.nodeTree);
     },
     /** Function: up
      *  Make the current parent element the new current element.
@@ -69942,7 +69942,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    (Object) moreattrs - The attributes to add/modify in object notation.
      *
      *  Returns:
-     *    The Strophe.Builder object.
+     *    The Strophe2.Builder object.
      */
     attrs: function attrs(moreattrs) {
       for (var k in moreattrs) {
@@ -69970,10 +69970,10 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    (String) text - The text to add to the child.
      *
      *  Returns:
-     *    The Strophe.Builder object.
+     *    The Strophe2.Builder object.
      */
     c: function c(name, attrs, text) {
-      var child = Strophe.xmlElement(name, attrs, text);
+      var child = Strophe2.xmlElement(name, attrs, text);
       this.node.appendChild(child);
       if (typeof text !== "string" && typeof text !== "number") {
         this.node = child;
@@ -69992,17 +69992,17 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    (XMLElement) elem - A DOM element.
      *
      *  Returns:
-     *    The Strophe.Builder object.
+     *    The Strophe2.Builder object.
      */
     cnode: function cnode(elem) {
       var impNode;
-      var xmlGen = Strophe.xmlGenerator();
+      var xmlGen = Strophe2.xmlGenerator();
       try {
         impNode = xmlGen.importNode !== undefined;
       } catch (e) {
         impNode = false;
       }
-      var newElem = impNode ? xmlGen.importNode(elem, true) : Strophe.copyElement(elem);
+      var newElem = impNode ? xmlGen.importNode(elem, true) : Strophe2.copyElement(elem);
       this.node.appendChild(newElem);
       this.node = newElem;
       return this;
@@ -70017,10 +70017,10 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    (String) text - The text data to append to the current element.
      *
      *  Returns:
-     *    The Strophe.Builder object.
+     *    The Strophe2.Builder object.
      */
     t: function t(text) {
-      var child = Strophe.xmlTextNode(text);
+      var child = Strophe2.xmlTextNode(text);
       this.node.appendChild(child);
       return this;
     },
@@ -70033,36 +70033,36 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    (String) html - The html to insert as contents of current element.
      *
      *  Returns:
-     *    The Strophe.Builder object.
+     *    The Strophe2.Builder object.
      */
     h: function h(html) {
-      var fragment = Strophe.xmlGenerator().createElement('body'); // force the browser to try and fix any invalid HTML tags
+      var fragment = Strophe2.xmlGenerator().createElement('body'); // force the browser to try and fix any invalid HTML tags
 
       fragment.innerHTML = html; // copy cleaned html into an xml dom
 
-      var xhtml = Strophe.createHtml(fragment);
+      var xhtml = Strophe2.createHtml(fragment);
       while (xhtml.childNodes.length > 0) {
         this.node.appendChild(xhtml.childNodes[0]);
       }
       return this;
     }
   };
-  /** PrivateClass: Strophe.Handler
+  /** PrivateClass: Strophe2.Handler
    *  _Private_ helper class for managing stanza handlers.
    *
-   *  A Strophe.Handler encapsulates a user provided callback function to be
+   *  A Strophe2.Handler encapsulates a user provided callback function to be
    *  executed when matching stanzas are received by the connection.
    *  Handlers can be either one-off or persistant depending on their
    *  return value. Returning true will cause a Handler to remain active, and
    *  returning false will remove the Handler.
    *
-   *  Users will not use Strophe.Handler objects directly, but instead they
-   *  will use Strophe.Connection.addHandler() and
-   *  Strophe.Connection.deleteHandler().
+   *  Users will not use Strophe2.Handler objects directly, but instead they
+   *  will use Strophe2.Connection.addHandler() and
+   *  Strophe2.Connection.deleteHandler().
    */
 
-  /** PrivateConstructor: Strophe.Handler
-   *  Create and initialize a new Strophe.Handler.
+  /** PrivateConstructor: Strophe2.Handler
+   *  Create and initialize a new Strophe2.Handler.
    *
    *  Parameters:
    *    (Function) handler - A function to be executed when the handler is run.
@@ -70074,10 +70074,10 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *    (Object) options - Handler options
    *
    *  Returns:
-   *    A new Strophe.Handler object.
+   *    A new Strophe2.Handler object.
    */
 
-  Strophe.Handler = function (handler, ns, name, type, id, from, options) {
+  Strophe2.Handler = function (handler, ns, name, type, id, from, options) {
     this.handler = handler;
     this.ns = ns;
     this.name = name;
@@ -70089,19 +70089,19 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     }; // BBB: Maintain backward compatibility with old `matchBare` option
 
     if (this.options.matchBare) {
-      Strophe.warn('The "matchBare" option is deprecated, use "matchBareFromJid" instead.');
+      Strophe2.warn('The "matchBare" option is deprecated, use "matchBareFromJid" instead.');
       this.options.matchBareFromJid = this.options.matchBare;
       delete this.options.matchBare;
     }
     if (this.options.matchBareFromJid) {
-      this.from = from ? Strophe.getBareJidFromJid(from) : null;
+      this.from = from ? Strophe2.getBareJidFromJid(from) : null;
     } else {
       this.from = from;
     } // whether the handler is a user handler or a system handler
 
     this.user = true;
   };
-  Strophe.Handler.prototype = {
+  Strophe2.Handler.prototype = {
     /** PrivateFunction: getNamespace
      *  Returns the XML namespace attribute on an element.
      *  If `ignoreNamespaceFragment` was passed in for this handler, then the
@@ -70121,7 +70121,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       return elNamespace;
     },
     /** PrivateFunction: namespaceMatch
-     *  Tests if a stanza matches the namespace set for this Strophe.Handler.
+     *  Tests if a stanza matches the namespace set for this Strophe2.Handler.
      *
      *  Parameters:
      *    (XMLElement) elem - The XML element to test.
@@ -70135,7 +70135,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       if (!this.ns) {
         return true;
       } else {
-        Strophe.forEachChild(elem, null, function (elem) {
+        Strophe2.forEachChild(elem, null, function (elem) {
           if (_this.getNamespace(elem) === _this.ns) {
             nsMatch = true;
           }
@@ -70144,7 +70144,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       }
     },
     /** PrivateFunction: isMatch
-     *  Tests if a stanza matches the Strophe.Handler.
+     *  Tests if a stanza matches the Strophe2.Handler.
      *
      *  Parameters:
      *    (XMLElement) elem - The XML element to test.
@@ -70155,10 +70155,10 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     isMatch: function isMatch(elem) {
       var from = elem.getAttribute('from');
       if (this.options.matchBareFromJid) {
-        from = Strophe.getBareJidFromJid(from);
+        from = Strophe2.getBareJidFromJid(from);
       }
       var elem_type = elem.getAttribute("type");
-      if (this.namespaceMatch(elem) && (!this.name || Strophe.isTagEqual(elem, this.name)) && (!this.type || (Array.isArray(this.type) ? this.type.indexOf(elem_type) !== -1 : elem_type === this.type)) && (!this.id || elem.getAttribute("id") === this.id) && (!this.from || from === this.from)) {
+      if (this.namespaceMatch(elem) && (!this.name || Strophe2.isTagEqual(elem, this.name)) && (!this.type || (Array.isArray(this.type) ? this.type.indexOf(elem_type) !== -1 : elem_type === this.type)) && (!this.id || elem.getAttribute("id") === this.id) && (!this.from || from === this.from)) {
         return true;
       }
       return false;
@@ -70168,7 +70168,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *
      *  Parameters:
      *    (XMLElement) elem - The DOM element that triggered the
-     *      Strophe.Handler.
+     *      Strophe2.Handler.
      *
      *  Returns:
      *    A boolean indicating if the handler should remain active.
@@ -70178,13 +70178,13 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       try {
         result = this.handler(elem);
       } catch (e) {
-        Strophe._handleError(e);
+        Strophe2._handleError(e);
         throw e;
       }
       return result;
     },
     /** PrivateFunction: toString
-     *  Get a String representation of the Strophe.Handler object.
+     *  Get a String representation of the Strophe2.Handler object.
      *
      *  Returns:
      *    A String.
@@ -70193,21 +70193,21 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       return "{Handler: " + this.handler + "(" + this.name + "," + this.id + "," + this.ns + ")}";
     }
   };
-  /** PrivateClass: Strophe.TimedHandler
+  /** PrivateClass: Strophe2.TimedHandler
    *  _Private_ helper class for managing timed handlers.
    *
-   *  A Strophe.TimedHandler encapsulates a user provided callback that
+   *  A Strophe2.TimedHandler encapsulates a user provided callback that
    *  should be called after a certain period of time or at regular
    *  intervals.  The return value of the callback determines whether the
-   *  Strophe.TimedHandler will continue to fire.
+   *  Strophe2.TimedHandler will continue to fire.
    *
-   *  Users will not use Strophe.TimedHandler objects directly, but instead
-   *  they will use Strophe.Connection.addTimedHandler() and
-   *  Strophe.Connection.deleteTimedHandler().
+   *  Users will not use Strophe2.TimedHandler objects directly, but instead
+   *  they will use Strophe2.Connection.addTimedHandler() and
+   *  Strophe2.Connection.deleteTimedHandler().
    */
 
-  /** PrivateConstructor: Strophe.TimedHandler
-   *  Create and initialize a new Strophe.TimedHandler object.
+  /** PrivateConstructor: Strophe2.TimedHandler
+   *  Create and initialize a new Strophe2.TimedHandler object.
    *
    *  Parameters:
    *    (Integer) period - The number of milliseconds to wait before the
@@ -70216,21 +70216,21 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *      function should take no arguments.
    *
    *  Returns:
-   *    A new Strophe.TimedHandler object.
+   *    A new Strophe2.TimedHandler object.
    */
 
-  Strophe.TimedHandler = function (period, handler) {
+  Strophe2.TimedHandler = function (period, handler) {
     this.period = period;
     this.handler = handler;
     this.lastCalled = new Date().getTime();
     this.user = true;
   };
-  Strophe.TimedHandler.prototype = {
+  Strophe2.TimedHandler.prototype = {
     /** PrivateFunction: run
-     *  Run the callback for the Strophe.TimedHandler.
+     *  Run the callback for the Strophe2.TimedHandler.
      *
      *  Returns:
-     *    true if the Strophe.TimedHandler should be called again, and false
+     *    true if the Strophe2.TimedHandler should be called again, and false
      *      otherwise.
      */
     run: function run() {
@@ -70238,13 +70238,13 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       return this.handler();
     },
     /** PrivateFunction: reset
-     *  Reset the last called time for the Strophe.TimedHandler.
+     *  Reset the last called time for the Strophe2.TimedHandler.
      */
     reset: function reset() {
       this.lastCalled = new Date().getTime();
     },
     /** PrivateFunction: toString
-     *  Get a string representation of the Strophe.TimedHandler object.
+     *  Get a string representation of the Strophe2.TimedHandler object.
      *
      *  Returns:
      *    The string representation.
@@ -70253,15 +70253,15 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       return "{TimedHandler: " + this.handler + "(" + this.period + ")}";
     }
   };
-  /** Class: Strophe.Connection
+  /** Class: Strophe2.Connection
    *  XMPP Connection manager.
    *
-   *  This class is the main part of Strophe.  It manages a BOSH or websocket
+   *  This class is the main part of Strophe2.  It manages a BOSH or websocket
    *  connection to an XMPP server and dispatches events to the user callbacks
    *  as data arrives. It supports SASL PLAIN, SASL DIGEST-MD5, SASL SCRAM-SHA1
    *  and legacy authentication.
    *
-   *  After creating a Strophe.Connection object, the user will typically
+   *  After creating a Strophe2.Connection object, the user will typically
    *  call connect() with a user supplied callback to handle connection level
    *  events like authentication failure, disconnection, or connection
    *  complete.
@@ -70275,18 +70275,18 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *  To send data to the connection, use send().
    */
 
-  /** Constructor: Strophe.Connection
-   *  Create and initialize a Strophe.Connection object.
+  /** Constructor: Strophe2.Connection
+   *  Create and initialize a Strophe2.Connection object.
    *
    *  The transport-protocol for this connection will be chosen automatically
    *  based on the given service parameter. URLs starting with "ws://" or
    *  "wss://" will use WebSockets, URLs starting with "http://", "https://"
    *  or without a protocol will use BOSH.
    *
-   *  To make Strophe connect to the current host you can leave out the protocol
+   *  To make Strophe2 connect to the current host you can leave out the protocol
    *  and host part and just pass the path, e.g.
    *
-   *  > let conn = new Strophe.Connection("/http-bind/");
+   *  > let conn = new Strophe2.Connection("/http-bind/");
    *
    *  Options common to both Websocket and BOSH:
    *  ------------------------------------------
@@ -70315,10 +70315,10 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *  mechanisms:
    *
    *  The *mechanisms* option allows you to specify the SASL mechanisms that this
-   *  instance of Strophe.Connection (and therefore your XMPP client) will
+   *  instance of Strophe2.Connection (and therefore your XMPP client) will
    *  support.
    *
-   *  The value must be an array of objects with Strophe.SASLMechanism
+   *  The value must be an array of objects with Strophe2.SASLMechanism
    *  prototypes.
    *
    *  If nothing is specified, then the following mechanisms (and their
@@ -70335,7 +70335,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *  explicitResourceBinding:
    *
    *  If `explicitResourceBinding` is set to a truthy value, then the XMPP client
-   *  needs to explicitly call `Strophe.Connection.prototype.bind` once the XMPP
+   *  needs to explicitly call `Strophe2.Connection.prototype.bind` once the XMPP
    *  server has advertised the "urn:ietf:params:xml:ns:xmpp-bind" feature.
    *
    *  Making this step explicit allows client authors to first finish other
@@ -70346,12 +70346,12 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *  ------------------
    *
    *  If you want to connect to the current host with a WebSocket connection you
-   *  can tell Strophe to use WebSockets through a "protocol" attribute in the
+   *  can tell Strophe2 to use WebSockets through a "protocol" attribute in the
    *  optional options parameter. Valid values are "ws" for WebSocket and "wss"
    *  for Secure WebSocket.
    *  So to connect to "wss://CURRENT_HOSTNAME/xmpp-websocket" you would call
    *
-   *  > let conn = new Strophe.Connection("/xmpp-websocket/", {protocol: "wss"});
+   *  > let conn = new Strophe2.Connection("/xmpp-websocket/", {protocol: "wss"});
    *
    *  Note that relative URLs _NOT_ starting with a "/" will also include the path
    *  of the current site.
@@ -70366,7 +70366,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *  By adding "sync" to the options, you can control if requests will
    *  be made synchronously or not. The default behaviour is asynchronous.
    *  If you want to make requests synchronous, make "sync" evaluate to true.
-   *  > let conn = new Strophe.Connection("/http-bind/", {sync: true});
+   *  > let conn = new Strophe2.Connection("/http-bind/", {sync: true});
    *
    *  You can also toggle this on an already established connection.
    *  > conn.options.sync = true;
@@ -70374,7 +70374,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *  The *customHeaders* option can be used to provide custom HTTP headers to be
    *  included in the XMLHttpRequests made.
    *
-   *  The *keepalive* option can be used to instruct Strophe to maintain the
+   *  The *keepalive* option can be used to instruct Strophe2 to maintain the
    *  current BOSH session across interruptions such as webpage reloads.
    *
    *  It will do this by caching the sessions tokens in sessionStorage, and when
@@ -70403,10 +70403,10 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *    (Object) options - A hash of configuration options
    *
    *  Returns:
-   *    A new Strophe.Connection object.
+   *    A new Strophe2.Connection object.
    */
 
-  Strophe.Connection = function (service, options) {
+  Strophe2.Connection = function (service, options) {
     var _this2 = this;
 
     // The service URL
@@ -70416,9 +70416,9 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     var proto = this.options.protocol || ""; // Select protocal based on service or options
 
     if (service.indexOf("ws:") === 0 || service.indexOf("wss:") === 0 || proto.indexOf("ws") === 0) {
-      this._proto = new Strophe.Websocket(this);
+      this._proto = new Strophe2.Websocket(this);
     } else {
-      this._proto = new Strophe.Bosh(this);
+      this._proto = new Strophe2.Bosh(this);
     }
     /* The connected JID. */
 
@@ -70466,16 +70466,16 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     utils.addCookies(this.options.cookies);
     this.registerSASLMechanisms(this.options.mechanisms); // initialize plugins
 
-    for (var k in Strophe._connectionPlugins) {
-      if (Object.prototype.hasOwnProperty.call(Strophe._connectionPlugins, k)) {
+    for (var k in Strophe2._connectionPlugins) {
+      if (Object.prototype.hasOwnProperty.call(Strophe2._connectionPlugins, k)) {
         var F = function F() {};
-        F.prototype = Strophe._connectionPlugins[k];
+        F.prototype = Strophe2._connectionPlugins[k];
         this[k] = new F();
         this[k].init(this);
       }
     }
   };
-  Strophe.Connection.prototype = {
+  Strophe2.Connection.prototype = {
     /** Function: reset
      *  Reset the connection.
      *
@@ -70505,10 +70505,10 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     /** Function: pause
      *  Pause the request manager.
      *
-     *  This will prevent Strophe from sending any more requests to the
+     *  This will prevent Strophe2 from sending any more requests to the
      *  server.  This is very useful for temporarily pausing
      *  BOSH-Connections while a lot of send() calls are happening quickly.
-     *  This causes Strophe to send the data in a single request, saving
+     *  This causes Strophe2 to send the data in a single request, saving
      *  many request trips.
      */
     pause: function pause() {
@@ -70573,7 +70573,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    //do stuff
      *  }
      *
-     *  let conn = Strophe.connect('http://example.com/http-bind');
+     *  let conn = Strophe2.connect('http://example.com/http-bind');
      *  conn.addProtocolErrorHandler('HTTP', 500, onError);
      *  // Triggers HTTP 500 error and onError handler will be called
      *  conn.connect('user_jid@incorrect_jabber_host', 'secret', onConnect);
@@ -70588,9 +70588,9 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  be triggered multiple times with status updates.  The callback
      *  should take two arguments - the status code and the error condition.
      *
-     *  The status code will be one of the values in the Strophe.Status
+     *  The status code will be one of the values in the Strophe2.Status
      *  constants.  The error condition will be one of the conditions
-     *  defined in RFC 3920 or the condition 'strophe-parsererror'.
+     *  defined in RFC 3920 or the condition 'Strophe2-parsererror'.
      *
      *  The Parameters _wait_, _hold_ and _route_ are optional and only relevant
      *  for BOSH connections. Please see XEP 124 for a more detailed explanation
@@ -70627,12 +70627,12 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
        *  Authorization identity.
        */
 
-      this.authzid = Strophe.getBareJidFromJid(this.jid);
+      this.authzid = Strophe2.getBareJidFromJid(this.jid);
       /** Variable: authcid
        *  Authentication identity (User name).
        */
 
-      this.authcid = authcid || Strophe.getNodeFromJid(this.jid);
+      this.authcid = authcid || Strophe2.getNodeFromJid(this.jid);
       /** Variable: pass
        *  Authentication identity (User password).
        */
@@ -70649,14 +70649,14 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       this.authenticated = false;
       this.restored = false; // parse jid for domain
 
-      this.domain = Strophe.getDomainFromJid(this.jid);
-      this._changeConnectStatus(Strophe.Status.CONNECTING, null);
+      this.domain = Strophe2.getDomainFromJid(this.jid);
+      this._changeConnectStatus(Strophe2.Status.CONNECTING, null);
       this._proto._connect(wait, hold, route);
     },
     /** Function: attach
      *  Attach to an already created and authenticated BOSH session.
      *
-     *  This function is provided to allow Strophe to attach to BOSH
+     *  This function is provided to allow Strophe2 to attach to BOSH
      *  sessions which have been created externally, perhaps by a Web
      *  application.  This is often used to support auto-login type features
      *  without putting user credentials into the page.
@@ -70670,7 +70670,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    (Integer) wait - The optional HTTPBIND wait value.  This is the
      *      time the server will wait before returning an empty result for
      *      a request.  The default setting of 60 seconds is recommended.
-     *      Other settings will require tweaks to the Strophe.TIMEOUT value.
+     *      Other settings will require tweaks to the Strophe2.TIMEOUT value.
      *    (Integer) hold - The optional HTTPBIND hold value.  This is the
      *      number of connections the server will hold at one time.  This
      *      should almost always be set to 1 (the default).
@@ -70678,11 +70678,11 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *      allowed range of request ids that are valid.  The default is 5.
      */
     attach: function attach(jid, sid, rid, callback, wait, hold, wind) {
-      if (this._proto instanceof Strophe.Bosh) {
+      if (this._proto instanceof Strophe2.Bosh) {
         this._proto._attach(jid, sid, rid, callback, wait, hold, wind);
       } else {
         var error = new Error('The "attach" method can only be used with a BOSH connection.');
-        error.name = 'StropheSessionError';
+        error.name = 'Strophe2SessionError';
         throw error;
       }
     },
@@ -70690,9 +70690,9 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  Attempt to restore a cached BOSH session.
      *
      *  This function is only useful in conjunction with providing the
-     *  "keepalive":true option when instantiating a new Strophe.Connection.
+     *  "keepalive":true option when instantiating a new Strophe2.Connection.
      *
-     *  When "keepalive" is set to true, Strophe will cache the BOSH tokens
+     *  When "keepalive" is set to true, Strophe2 will cache the BOSH tokens
      *  RID (Request ID) and SID (Session ID) and then when this function is
      *  called, it will attempt to restore the session from those cached
      *  tokens.
@@ -70718,7 +70718,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         this._proto._restore(jid, callback, wait, hold, wind);
       } else {
         var error = new Error('The "restore" method can only be used with a BOSH connection.');
-        error.name = 'StropheSessionError';
+        error.name = 'Strophe2SessionError';
         throw error;
       }
     },
@@ -70727,13 +70727,13 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      * using BOSH.
      */
     _sessionCachingSupported: function _sessionCachingSupported() {
-      if (this._proto instanceof Strophe.Bosh) {
+      if (this._proto instanceof Strophe2.Bosh) {
         if (!JSON) {
           return false;
         }
         try {
-          sessionStorage.setItem('_strophe_', '_strophe_');
-          sessionStorage.removeItem('_strophe_');
+          sessionStorage.setItem('_Strophe2_', '_Strophe2_');
+          sessionStorage.removeItem('_Strophe2_');
         } catch (e) {
           return false;
         }
@@ -70746,7 +70746,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  connection.
      *
      *  The default function does nothing.  User code can override this with
-     *  > Strophe.Connection.xmlInput = function (elem) {
+     *  > Strophe2.Connection.xmlInput = function (elem) {
      *  >   (user code)
      *  > };
      *
@@ -70754,7 +70754,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  <stream> tag for WebSocket-Connoctions will be passed as selfclosing here.
      *
      *  BOSH-Connections will have all stanzas wrapped in a <body> tag. See
-     *  <Strophe.Bosh.strip> if you want to strip this tag.
+     *  <Strophe2.Bosh.strip> if you want to strip this tag.
      *
      *  Parameters:
      *    (XMLElement) elem - The XML data received by the connection.
@@ -70767,7 +70767,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  connection.
      *
      *  The default function does nothing.  User code can override this with
-     *  > Strophe.Connection.xmlOutput = function (elem) {
+     *  > Strophe2.Connection.xmlOutput = function (elem) {
      *  >   (user code)
      *  > };
      *
@@ -70775,7 +70775,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  <stream> tag for WebSocket-Connoctions will be passed as selfclosing here.
      *
      *  BOSH-Connections will have all stanzas wrapped in a <body> tag. See
-     *  <Strophe.Bosh.strip> if you want to strip this tag.
+     *  <Strophe2.Bosh.strip> if you want to strip this tag.
      *
      *  Parameters:
      *    (XMLElement) elem - The XMLdata sent by the connection.
@@ -70788,7 +70788,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  connection.
      *
      *  The default function does nothing.  User code can override this with
-     *  > Strophe.Connection.rawInput = function (data) {
+     *  > Strophe2.Connection.rawInput = function (data) {
      *  >   (user code)
      *  > };
      *
@@ -70803,7 +70803,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  connection.
      *
      *  The default function does nothing.  User code can override this with
-     *  > Strophe.Connection.rawOutput = function (data) {
+     *  > Strophe2.Connection.rawOutput = function (data) {
      *  >   (user code)
      *  > };
      *
@@ -70817,7 +70817,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  User overrideable function that receives the new valid rid.
      *
      *  The default function does nothing. User code can override this with
-     *  > Strophe.Connection.nextValidRid = function (rid) {
+     *  > Strophe2.Connection.nextValidRid = function (rid) {
      *  >    (user code)
      *  > };
      *
@@ -70837,7 +70837,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  Parameters:
      *    (XMLElement |
      *     [XMLElement] |
-     *     Strophe.Builder) elem - The stanza to send.
+     *     Strophe2.Builder) elem - The stanza to send.
      */
     send: function send(elem) {
       if (elem === null) {
@@ -70969,7 +70969,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
             }
           } else {
             var error = new Error("Got bad IQ type of ".concat(iqtype));
-            error.name = "StropheError";
+            error.name = "Strophe2Error";
             throw error;
           }
         }, null, 'iq', ['error', 'result'], id); // if timeout specified, set up a timeout handler.
@@ -70996,7 +70996,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     _queueData: function _queueData(element) {
       if (element === null || !element.tagName || !element.childNodes) {
         var error = new Error("Cannot queue non-DOMElement.");
-        error.name = "StropheError";
+        error.name = "Strophe2Error";
         throw error;
       }
       this._data.push(element);
@@ -71035,7 +71035,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    A reference to the handler that can be used to remove it.
      */
     addTimedHandler: function addTimedHandler(period, handler) {
-      var thand = new Strophe.TimedHandler(period, handler);
+      var thand = new Strophe2.TimedHandler(period, handler);
       this.addTimeds.push(thand);
       return thand;
     },
@@ -71047,7 +71047,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  but is the reference returned from addTimedHandler().
      *
      *  Parameters:
-     *    (Strophe.TimedHandler) handRef - The handler reference.
+     *    (Strophe2.TimedHandler) handRef - The handler reference.
      */
     deleteTimedHandler: function deleteTimedHandler(handRef) {
       // this must be done in the Idle loop so that we don't change
@@ -71119,7 +71119,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    A reference to the handler that can be used to remove it.
      */
     addHandler: function addHandler(handler, ns, name, type, id, from, options) {
-      var hand = new Strophe.Handler(handler, ns, name, type, id, from, options);
+      var hand = new Strophe2.Handler(handler, ns, name, type, id, from, options);
       this.addHandlers.push(hand);
       return hand;
     },
@@ -71131,7 +71131,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  but is the reference returned from addHandler().
      *
      *  Parameters:
-     *    (Strophe.Handler) handRef - The handler reference.
+     *    (Strophe2.Handler) handRef - The handler reference.
      */
     deleteHandler: function deleteHandler(handRef) {
       // this must be done in the Idle loop so that we don't change
@@ -71147,15 +71147,15 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     /** Function: registerSASLMechanisms
      *
      * Register the SASL mechanisms which will be supported by this instance of
-     * Strophe.Connection (i.e. which this XMPP client will support).
+     * Strophe2.Connection (i.e. which this XMPP client will support).
      *
      *  Parameters:
-     *    (Array) mechanisms - Array of objects with Strophe.SASLMechanism prototypes
+     *    (Array) mechanisms - Array of objects with Strophe2.SASLMechanism prototypes
      *
      */
     registerSASLMechanisms: function registerSASLMechanisms(mechanisms) {
       this.mechanisms = {};
-      mechanisms = mechanisms || [Strophe.SASLAnonymous, Strophe.SASLExternal, Strophe.SASLMD5, Strophe.SASLOAuthBearer, Strophe.SASLXOAuth2, Strophe.SASLPlain, Strophe.SASLSHA1];
+      mechanisms = mechanisms || [Strophe2.SASLAnonymous, Strophe2.SASLExternal, Strophe2.SASLMD5, Strophe2.SASLOAuthBearer, Strophe2.SASLXOAuth2, Strophe2.SASLPlain, Strophe2.SASLSHA1];
       mechanisms.forEach(this.registerSASLMechanism.bind(this));
     },
     /** Function: registerSASLMechanism
@@ -71163,7 +71163,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      * Register a single SASL mechanism, to be supported by this client.
      *
      *  Parameters:
-     *    (Object) mechanism - Object with a Strophe.SASLMechanism prototype
+     *    (Object) mechanism - Object with a Strophe2.SASLMechanism prototype
      *
      */
     registerSASLMechanism: function registerSASLMechanism(mechanism) {
@@ -71186,14 +71186,14 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    (String) reason - The reason the disconnect is occuring.
      */
     disconnect: function disconnect(reason) {
-      this._changeConnectStatus(Strophe.Status.DISCONNECTING, reason);
-      Strophe.warn("Disconnect was called because: " + reason);
+      this._changeConnectStatus(Strophe2.Status.DISCONNECTING, reason);
+      Strophe2.warn("Disconnect was called because: " + reason);
       if (this.connected) {
         var pres = false;
         this.disconnecting = true;
         if (this.authenticated) {
           pres = $pres({
-            'xmlns': Strophe.NS.CLIENT,
+            'xmlns': Strophe2.NS.CLIENT,
             'type': 'unavailable'
           });
         } // setup timeout handler
@@ -71201,7 +71201,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         this._disconnectTimeout = this._addSysTimedHandler(3000, this._onDisconnectTimeout.bind(this));
         this._proto._disconnect(pres);
       } else {
-        Strophe.warn("Disconnect was called before Strophe connected to the server");
+        Strophe2.warn("Disconnect was called before Strophe2 connected to the server");
         this._proto._abortAllRequests();
         this._doDisconnect();
       }
@@ -71212,20 +71212,20 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *
      *  Parameters:
      *    (Integer) status - the new connection status, one of the values
-     *      in Strophe.Status
+     *      in Strophe2.Status
      *    (String) condition - the error condition or null
      *    (XMLElement) elem - The triggering stanza.
      */
     _changeConnectStatus: function _changeConnectStatus(status, condition, elem) {
       // notify all plugins listening for status changes
-      for (var k in Strophe._connectionPlugins) {
-        if (Object.prototype.hasOwnProperty.call(Strophe._connectionPlugins, k)) {
+      for (var k in Strophe2._connectionPlugins) {
+        if (Object.prototype.hasOwnProperty.call(Strophe2._connectionPlugins, k)) {
           var plugin = this[k];
           if (plugin.statusChanged) {
             try {
               plugin.statusChanged(status, condition);
             } catch (err) {
-              Strophe.error("".concat(k, " plugin caused an exception changing status: ").concat(err));
+              Strophe2.error("".concat(k, " plugin caused an exception changing status: ").concat(err));
             }
           }
         }
@@ -71235,8 +71235,8 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         try {
           this.connect_callback(status, condition, elem);
         } catch (e) {
-          Strophe._handleError(e);
-          Strophe.error("User connection callback caused an exception: ".concat(e));
+          Strophe2._handleError(e);
+          Strophe2.error("User connection callback caused an exception: ".concat(e));
         }
       }
     },
@@ -71255,7 +71255,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         this.deleteTimedHandler(this._disconnectTimeout);
         this._disconnectTimeout = null;
       }
-      Strophe.debug("_doDisconnect was called");
+      Strophe2.debug("_doDisconnect was called");
       this._proto._doDisconnect();
       this.authenticated = false;
       this.disconnecting = false;
@@ -71268,7 +71268,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       this.addTimeds = [];
       this.addHandlers = []; // tell the parent we disconnected
 
-      this._changeConnectStatus(Strophe.Status.DISCONNECTED, condition);
+      this._changeConnectStatus(Strophe2.Status.DISCONNECTED, condition);
       this.connected = false;
     },
     /** PrivateFunction: _dataRecv
@@ -71280,28 +71280,28 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  stanza.
      *
      *  Parameters:
-     *    (Strophe.Request) req - The request that has data ready.
+     *    (Strophe2.Request) req - The request that has data ready.
      *    (string) req - The stanza a raw string (optiona).
      */
     _dataRecv: function _dataRecv(req, raw) {
       var _this6 = this;
-      Strophe.debug("_dataRecv called");
+      Strophe2.debug("_dataRecv called");
       var elem = this._proto._reqToData(req);
       if (elem === null) {
         return;
       }
-      if (this.xmlInput !== Strophe.Connection.prototype.xmlInput) {
+      if (this.xmlInput !== Strophe2.Connection.prototype.xmlInput) {
         if (elem.nodeName === this._proto.strip && elem.childNodes.length) {
           this.xmlInput(elem.childNodes[0]);
         } else {
           this.xmlInput(elem);
         }
       }
-      if (this.rawInput !== Strophe.Connection.prototype.rawInput) {
+      if (this.rawInput !== Strophe2.Connection.prototype.rawInput) {
         if (raw) {
           this.rawInput(raw);
         } else {
-          this.rawInput(Strophe.serialize(elem));
+          this.rawInput(Strophe2.serialize(elem));
         }
       } // remove handlers scheduled for deletion
 
@@ -71334,15 +71334,15 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
           if (cond === "remote-stream-error" && conflict.length > 0) {
             cond = "conflict";
           }
-          this._changeConnectStatus(Strophe.Status.CONNFAIL, cond);
+          this._changeConnectStatus(Strophe2.Status.CONNFAIL, cond);
         } else {
-          this._changeConnectStatus(Strophe.Status.CONNFAIL, Strophe.ErrorCondition.UNKOWN_REASON);
+          this._changeConnectStatus(Strophe2.Status.CONNFAIL, Strophe2.ErrorCondition.UNKOWN_REASON);
         }
         this._doDisconnect(cond);
         return;
       } // send each incoming stanza through the handler chain
 
-      Strophe.forEachChild(elem, null, function (child) {
+      Strophe2.forEachChild(elem, null, function (child) {
         // process handlers
         var newList = _this6.handlers;
         _this6.handlers = [];
@@ -71360,7 +71360,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
             }
           } catch (e) {
             // if the handler throws an exception, we consider it as false
-            Strophe.warn('Removing Strophe handlers due to uncaught exception: ' + e.message);
+            Strophe2.warn('Removing Strophe2 handlers due to uncaught exception: ' + e.message);
           }
         }
       });
@@ -71380,49 +71380,49 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  the code will fall back to legacy authentication.
      *
      *  Parameters:
-     *    (Strophe.Request) req - The current request.
+     *    (Strophe2.Request) req - The current request.
      *    (Function) _callback - low level (xmpp) connect callback function.
      *      Useful for plugins with their own xmpp connect callback (when they
      *      want to do something special).
      */
     _connect_cb: function _connect_cb(req, _callback, raw) {
-      Strophe.debug("_connect_cb was called");
+      Strophe2.debug("_connect_cb was called");
       this.connected = true;
       var bodyWrap;
       try {
         bodyWrap = this._proto._reqToData(req);
       } catch (e) {
-        if (e.name !== Strophe.ErrorCondition.BAD_FORMAT) {
+        if (e.name !== Strophe2.ErrorCondition.BAD_FORMAT) {
           throw e;
         }
-        this._changeConnectStatus(Strophe.Status.CONNFAIL, Strophe.ErrorCondition.BAD_FORMAT);
-        this._doDisconnect(Strophe.ErrorCondition.BAD_FORMAT);
+        this._changeConnectStatus(Strophe2.Status.CONNFAIL, Strophe2.ErrorCondition.BAD_FORMAT);
+        this._doDisconnect(Strophe2.ErrorCondition.BAD_FORMAT);
       }
       if (!bodyWrap) {
         return;
       }
-      if (this.xmlInput !== Strophe.Connection.prototype.xmlInput) {
+      if (this.xmlInput !== Strophe2.Connection.prototype.xmlInput) {
         if (bodyWrap.nodeName === this._proto.strip && bodyWrap.childNodes.length) {
           this.xmlInput(bodyWrap.childNodes[0]);
         } else {
           this.xmlInput(bodyWrap);
         }
       }
-      if (this.rawInput !== Strophe.Connection.prototype.rawInput) {
+      if (this.rawInput !== Strophe2.Connection.prototype.rawInput) {
         if (raw) {
           this.rawInput(raw);
         } else {
-          this.rawInput(Strophe.serialize(bodyWrap));
+          this.rawInput(Strophe2.serialize(bodyWrap));
         }
       }
       var conncheck = this._proto._connect_cb(bodyWrap);
-      if (conncheck === Strophe.Status.CONNFAIL) {
+      if (conncheck === Strophe2.Status.CONNFAIL) {
         return;
       } // Check for the stream:features tag
 
       var hasFeatures;
       if (bodyWrap.getElementsByTagNameNS) {
-        hasFeatures = bodyWrap.getElementsByTagNameNS(Strophe.NS.STREAM, "features").length > 0;
+        hasFeatures = bodyWrap.getElementsByTagNameNS(Strophe2.NS.STREAM, "features").length > 0;
       } else {
         hasFeatures = bodyWrap.getElementsByTagName("stream:features").length > 0 || bodyWrap.getElementsByTagName("features").length > 0;
       }
@@ -71434,7 +71434,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       var mechanisms = bodyWrap.getElementsByTagName("mechanism");
       if (mechanisms.length > 0) {
         for (var i = 0; i < mechanisms.length; i++) {
-          var mech = Strophe.getText(mechanisms[i]);
+          var mech = Strophe2.getText(mechanisms[i]);
           if (this.mechanisms[mech]) matched.push(this.mechanisms[mech]);
         }
       }
@@ -71520,7 +71520,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         this._sasl_mechanism = new mechanisms[i]();
         this._sasl_mechanism.onStart(this);
         var request_auth_exchange = $build("auth", {
-          'xmlns': Strophe.NS.SASL,
+          'xmlns': Strophe2.NS.SASL,
           'mechanism': this._sasl_mechanism.name
         });
         if (this._sasl_mechanism.isClientFirst) {
@@ -71538,10 +71538,10 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *
      */
     _sasl_challenge_cb: function _sasl_challenge_cb(elem) {
-      var challenge = abab_1(Strophe.getText(elem));
+      var challenge = abab_1(Strophe2.getText(elem));
       var response = this._sasl_mechanism.onChallenge(this, challenge);
       var stanza = $build('response', {
-        'xmlns': Strophe.NS.SASL
+        'xmlns': Strophe2.NS.SASL
       });
       if (response !== "") {
         stanza.t(abab_2(response));
@@ -71554,22 +71554,22 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  Attempt legacy (i.e. non-SASL) authentication.
      */
     _attemptLegacyAuth: function _attemptLegacyAuth() {
-      if (Strophe.getNodeFromJid(this.jid) === null) {
+      if (Strophe2.getNodeFromJid(this.jid) === null) {
         // we don't have a node, which is required for non-anonymous
         // client connections
-        this._changeConnectStatus(Strophe.Status.CONNFAIL, Strophe.ErrorCondition.MISSING_JID_NODE);
-        this.disconnect(Strophe.ErrorCondition.MISSING_JID_NODE);
+        this._changeConnectStatus(Strophe2.Status.CONNFAIL, Strophe2.ErrorCondition.MISSING_JID_NODE);
+        this.disconnect(Strophe2.ErrorCondition.MISSING_JID_NODE);
       } else {
         // Fall back to legacy authentication
-        this._changeConnectStatus(Strophe.Status.AUTHENTICATING, null);
+        this._changeConnectStatus(Strophe2.Status.AUTHENTICATING, null);
         this._addSysHandler(this._onLegacyAuthIQResult.bind(this), null, null, null, "_auth_1");
         this.send($iq({
           'type': "get",
           'to': this.domain,
           'id': "_auth_1"
         }).c("query", {
-          xmlns: Strophe.NS.AUTH
-        }).c("username", {}).t(Strophe.getNodeFromJid(this.jid)).tree());
+          xmlns: Strophe2.NS.AUTH
+        }).c("username", {}).t(Strophe2.getNodeFromJid(this.jid)).tree());
       }
     },
     /** PrivateFunction: _onLegacyAuthIQResult
@@ -71592,15 +71592,15 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         type: "set",
         id: "_auth_2"
       }).c('query', {
-        xmlns: Strophe.NS.AUTH
-      }).c('username', {}).t(Strophe.getNodeFromJid(this.jid)).up().c('password').t(this.pass);
-      if (!Strophe.getResourceFromJid(this.jid)) {
+        xmlns: Strophe2.NS.AUTH
+      }).c('username', {}).t(Strophe2.getNodeFromJid(this.jid)).up().c('password').t(this.pass);
+      if (!Strophe2.getResourceFromJid(this.jid)) {
         // since the user has not supplied a resource, we pick
         // a default one here.  unlike other auth methods, the server
         // cannot do this for us.
-        this.jid = Strophe.getBareJidFromJid(this.jid) + '/strophe';
+        this.jid = Strophe2.getBareJidFromJid(this.jid) + '/Strophe2';
       }
-      iq.up().c('resource', {}).t(Strophe.getResourceFromJid(this.jid));
+      iq.up().c('resource', {}).t(Strophe2.getResourceFromJid(this.jid));
       this._addSysHandler(this._auth2_cb.bind(this), null, null, null, "_auth_2");
       this.send(iq.tree());
       return false;
@@ -71618,7 +71618,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       var _this7 = this;
       if (this._sasl_data["server-signature"]) {
         var serverSignature;
-        var success = abab_1(Strophe.getText(elem));
+        var success = abab_1(Strophe2.getText(elem));
         var attribMatch = /([a-z]+)=([^,]+)(,|$)/;
         var matches = success.match(attribMatch);
         if (matches[1] === "v") {
@@ -71636,7 +71636,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
           return this._sasl_failure_cb(null);
         }
       }
-      Strophe.info("SASL authentication succeeded.");
+      Strophe2.info("SASL authentication succeeded.");
       if (this._sasl_mechanism) {
         this._sasl_mechanism.onSuccess();
       } // remove old handlers
@@ -71660,7 +71660,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       }, null, "stream:features", null, null));
       streamfeature_handlers.push(this._addSysHandler(function (elem) {
         return wrapper(streamfeature_handlers, elem);
-      }, Strophe.NS.STREAM, "features", null, null)); // we must send an xmpp:restart now
+      }, Strophe2.NS.STREAM, "features", null, null)); // we must send an xmpp:restart now
 
       this._sendRestart();
       return false;
@@ -71685,12 +71685,12 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         }
       }
       if (!this.do_bind) {
-        this._changeConnectStatus(Strophe.Status.AUTHFAIL, null);
+        this._changeConnectStatus(Strophe2.Status.AUTHFAIL, null);
         return false;
       } else if (!this.options.explicitResourceBinding) {
         this.bind();
       } else {
-        this._changeConnectStatus(Strophe.Status.BINDREQUIRED, null);
+        this._changeConnectStatus(Strophe2.Status.BINDREQUIRED, null);
       }
       return false;
     },
@@ -71701,7 +71701,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  https://tools.ietf.org/html/rfc6120#section-7.5
      *
      *  If `explicitResourceBinding` was set to a truthy value in the options
-     *  passed to the Strophe.Connection constructor, then this function needs
+     *  passed to the Strophe2.Connection constructor, then this function needs
      *  to be called explicitly by the client author.
      *
      *  Otherwise it'll be called automatically as soon as the XMPP server
@@ -71709,24 +71709,24 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      */
     bind: function bind() {
       if (!this.do_bind) {
-        Strophe.log(Strophe.LogLevel.INFO, "Strophe.Connection.prototype.bind called but \"do_bind\" is false");
+        Strophe2.log(Strophe2.LogLevel.INFO, "Strophe2.Connection.prototype.bind called but \"do_bind\" is false");
         return;
       }
       this._addSysHandler(this._onResourceBindResultIQ.bind(this), null, null, null, "_bind_auth_2");
-      var resource = Strophe.getResourceFromJid(this.jid);
+      var resource = Strophe2.getResourceFromJid(this.jid);
       if (resource) {
         this.send($iq({
           type: "set",
           id: "_bind_auth_2"
         }).c('bind', {
-          xmlns: Strophe.NS.BIND
+          xmlns: Strophe2.NS.BIND
         }).c('resource', {}).t(resource).tree());
       } else {
         this.send($iq({
           type: "set",
           id: "_bind_auth_2"
         }).c('bind', {
-          xmlns: Strophe.NS.BIND
+          xmlns: Strophe2.NS.BIND
         }).tree());
       }
     },
@@ -71741,13 +71741,13 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      */
     _onResourceBindResultIQ: function _onResourceBindResultIQ(elem) {
       if (elem.getAttribute("type") === "error") {
-        Strophe.warn("Resource binding failed.");
+        Strophe2.warn("Resource binding failed.");
         var conflict = elem.getElementsByTagName("conflict");
         var condition;
         if (conflict.length > 0) {
-          condition = Strophe.ErrorCondition.CONFLICT;
+          condition = Strophe2.ErrorCondition.CONFLICT;
         }
-        this._changeConnectStatus(Strophe.Status.AUTHFAIL, condition, elem);
+        this._changeConnectStatus(Strophe2.Status.AUTHFAIL, condition, elem);
         return false;
       } // TODO - need to grab errors
 
@@ -71755,17 +71755,17 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       if (bind.length > 0) {
         var jidNode = bind[0].getElementsByTagName("jid");
         if (jidNode.length > 0) {
-          this.jid = Strophe.getText(jidNode[0]);
+          this.jid = Strophe2.getText(jidNode[0]);
           if (this.do_session) {
             this._establishSession();
           } else {
             this.authenticated = true;
-            this._changeConnectStatus(Strophe.Status.CONNECTED, null);
+            this._changeConnectStatus(Strophe2.Status.CONNECTED, null);
           }
         }
       } else {
-        Strophe.warn("Resource binding failed.");
-        this._changeConnectStatus(Strophe.Status.AUTHFAIL, null, elem);
+        Strophe2.warn("Resource binding failed.");
+        this._changeConnectStatus(Strophe2.Status.AUTHFAIL, null, elem);
         return false;
       }
     },
@@ -71779,14 +71779,14 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      */
     _establishSession: function _establishSession() {
       if (!this.do_session) {
-        throw new Error("Strophe.Connection.prototype._establishSession " + "called but apparently ".concat(Strophe.NS.SESSION, " wasn't advertised by the server"));
+        throw new Error("Strophe2.Connection.prototype._establishSession " + "called but apparently ".concat(Strophe2.NS.SESSION, " wasn't advertised by the server"));
       }
       this._addSysHandler(this._onSessionResultIQ.bind(this), null, null, null, "_session_auth_2");
       this.send($iq({
         type: "set",
         id: "_session_auth_2"
       }).c('session', {
-        xmlns: Strophe.NS.SESSION
+        xmlns: Strophe2.NS.SESSION
       }).tree());
     },
     /** PrivateFunction: _onSessionResultIQ
@@ -71810,10 +71810,10 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     _onSessionResultIQ: function _onSessionResultIQ(elem) {
       if (elem.getAttribute("type") === "result") {
         this.authenticated = true;
-        this._changeConnectStatus(Strophe.Status.CONNECTED, null);
+        this._changeConnectStatus(Strophe2.Status.CONNECTED, null);
       } else if (elem.getAttribute("type") === "error") {
-        Strophe.warn("Session creation failed.");
-        this._changeConnectStatus(Strophe.Status.AUTHFAIL, null, elem);
+        Strophe2.warn("Session creation failed.");
+        this._changeConnectStatus(Strophe2.Status.AUTHFAIL, null, elem);
         return false;
       }
       return false;
@@ -71838,7 +71838,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         this._sasl_challenge_handler = null;
       }
       if (this._sasl_mechanism) this._sasl_mechanism.onFailure();
-      this._changeConnectStatus(Strophe.Status.AUTHFAIL, null, elem);
+      this._changeConnectStatus(Strophe2.Status.AUTHFAIL, null, elem);
       return false;
     },
     /** PrivateFunction: _auth2_cb
@@ -71856,9 +71856,9 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     _auth2_cb: function _auth2_cb(elem) {
       if (elem.getAttribute("type") === "result") {
         this.authenticated = true;
-        this._changeConnectStatus(Strophe.Status.CONNECTED, null);
+        this._changeConnectStatus(Strophe2.Status.CONNECTED, null);
       } else if (elem.getAttribute("type") === "error") {
-        this._changeConnectStatus(Strophe.Status.AUTHFAIL, null, elem);
+        this._changeConnectStatus(Strophe2.Status.AUTHFAIL, null, elem);
         this.disconnect('authentication failed');
       }
       return false;
@@ -71866,7 +71866,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     /** PrivateFunction: _addSysTimedHandler
      *  _Private_ function to add a system level timed handler.
      *
-     *  This function is used to add a Strophe.TimedHandler for the
+     *  This function is used to add a Strophe2.TimedHandler for the
      *  library code.  System timed handlers are allowed to run before
      *  authentication is complete.
      *
@@ -71875,7 +71875,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    (Function) handler - The callback function.
      */
     _addSysTimedHandler: function _addSysTimedHandler(period, handler) {
-      var thand = new Strophe.TimedHandler(period, handler);
+      var thand = new Strophe2.TimedHandler(period, handler);
       thand.user = false;
       this.addTimeds.push(thand);
       return thand;
@@ -71883,7 +71883,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     /** PrivateFunction: _addSysHandler
      *  _Private_ function to add a system level stanza handler.
      *
-     *  This function is used to add a Strophe.Handler for the
+     *  This function is used to add a Strophe2.Handler for the
      *  library code.  System stanza handlers are allowed to run before
      *  authentication is complete.
      *
@@ -71895,7 +71895,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    (String) id - The stanza id attribute to match.
      */
     _addSysHandler: function _addSysHandler(handler, ns, name, type, id) {
-      var hand = new Strophe.Handler(handler, ns, name, type, id);
+      var hand = new Strophe2.Handler(handler, ns, name, type, id);
       hand.user = false;
       this.addHandlers.push(hand);
       return hand;
@@ -71910,8 +71910,8 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    false to remove the handler.
      */
     _onDisconnectTimeout: function _onDisconnectTimeout() {
-      Strophe.debug("_onDisconnectTimeout was called");
-      this._changeConnectStatus(Strophe.Status.CONNTIMEOUT, null);
+      Strophe2.debug("_onDisconnectTimeout was called");
+      this._changeConnectStatus(Strophe2.Status.CONNTIMEOUT, null);
       this._proto._onDisconnectTimeout(); // actually disconnect
 
       this._doDisconnect();
@@ -71967,7 +71967,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       }
     }
   };
-  /** Class: Strophe.SASLMechanism
+  /** Class: Strophe2.SASLMechanism
    *
    *  encapsulates SASL authentication mechanisms.
    *
@@ -71984,11 +71984,11 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *      ANONYMOUS - 20
    *      EXTERNAL - 10
    *
-   *  See: Strophe.Connection.addSupportedSASLMechanisms
+   *  See: Strophe2.Connection.addSupportedSASLMechanisms
    */
 
   /**
-   * PrivateConstructor: Strophe.SASLMechanism
+   * PrivateConstructor: Strophe2.SASLMechanism
    * SASL auth mechanism abstraction.
    *
    *  Parameters:
@@ -71997,10 +71997,10 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *    (Number) priority - Priority.
    *
    *  Returns:
-   *    A new Strophe.SASLMechanism object.
+   *    A new Strophe2.SASLMechanism object.
    */
 
-  Strophe.SASLMechanism = function (name, isClientFirst, priority) {
+  Strophe2.SASLMechanism = function (name, isClientFirst, priority) {
     /** PrivateVariable: name
      *  Mechanism name.
      */
@@ -72020,9 +72020,9 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  DIGEST-MD5 - 30
      *  Plain - 20
      *
-     *  Example: (This will cause Strophe to choose the mechanism that the server sent first)
+     *  Example: (This will cause Strophe2 to choose the mechanism that the server sent first)
      *
-     *  > Strophe.SASLMD5.priority = Strophe.SASLSHA1.priority;
+     *  > Strophe2.SASLMD5.priority = Strophe2.SASLSHA1.priority;
      *
      *  See <SASL mechanisms> for a list of available mechanisms.
      *
@@ -72030,21 +72030,21 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
 
     this.priority = priority;
   };
-  Strophe.SASLMechanism.prototype = {
+  Strophe2.SASLMechanism.prototype = {
     /**
      *  Function: test
      *  Checks if mechanism able to run.
      *  To disable a mechanism, make this return false;
      *
      *  To disable plain authentication run
-     *  > Strophe.SASLPlain.test = function() {
+     *  > Strophe2.SASLPlain.test = function() {
      *  >   return false;
      *  > }
      *
      *  See <SASL mechanisms> for a list of available mechanisms.
      *
      *  Parameters:
-     *    (Strophe.Connection) connection - Target Connection.
+     *    (Strophe2.Connection) connection - Target Connection.
      *
      *  Returns:
      *    (Boolean) If mechanism was able to run.
@@ -72056,7 +72056,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  Called before starting mechanism on some connection.
      *
      *  Parameters:
-     *    (Strophe.Connection) connection - Target Connection.
+     *    (Strophe2.Connection) connection - Target Connection.
      */
     onStart: function onStart(connection) {
       this._connection = connection;
@@ -72066,7 +72066,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  first (isClientFirst === true) challenge will be null on the first call.
      *
      *  Parameters:
-     *    (Strophe.Connection) connection - Target Connection.
+     *    (Strophe2.Connection) connection - Target Connection.
      *    (String) challenge - current challenge to handle.
      *
      *  Returns:
@@ -72091,13 +72091,13 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
   /** Constants: SASL mechanisms
    *  Available authentication mechanisms
    *
-   *  Strophe.SASLAnonymous - SASL ANONYMOUS authentication.
-   *  Strophe.SASLPlain - SASL PLAIN authentication.
-   *  Strophe.SASLMD5 - SASL DIGEST-MD5 authentication
-   *  Strophe.SASLSHA1 - SASL SCRAM-SHA1 authentication
-   *  Strophe.SASLOAuthBearer - SASL OAuth Bearer authentication
-   *  Strophe.SASLExternal - SASL EXTERNAL authentication
-   *  Strophe.SASLXOAuth2 - SASL X-OAuth2 authentication
+   *  Strophe2.SASLAnonymous - SASL ANONYMOUS authentication.
+   *  Strophe2.SASLPlain - SASL PLAIN authentication.
+   *  Strophe2.SASLMD5 - SASL DIGEST-MD5 authentication
+   *  Strophe2.SASLSHA1 - SASL SCRAM-SHA1 authentication
+   *  Strophe2.SASLOAuthBearer - SASL OAuth Bearer authentication
+   *  Strophe2.SASLExternal - SASL EXTERNAL authentication
+   *  Strophe2.SASLXOAuth2 - SASL X-OAuth2 authentication
    */
   // Building SASL callbacks
 
@@ -72105,21 +72105,21 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *  SASL ANONYMOUS authentication.
    */
 
-  Strophe.SASLAnonymous = function () {};
-  Strophe.SASLAnonymous.prototype = new Strophe.SASLMechanism("ANONYMOUS", false, 20);
-  Strophe.SASLAnonymous.prototype.test = function (connection) {
+  Strophe2.SASLAnonymous = function () {};
+  Strophe2.SASLAnonymous.prototype = new Strophe2.SASLMechanism("ANONYMOUS", false, 20);
+  Strophe2.SASLAnonymous.prototype.test = function (connection) {
     return connection.authcid === null;
   };
   /** PrivateConstructor: SASLPlain
    *  SASL PLAIN authentication.
    */
 
-  Strophe.SASLPlain = function () {};
-  Strophe.SASLPlain.prototype = new Strophe.SASLMechanism("PLAIN", true, 50);
-  Strophe.SASLPlain.prototype.test = function (connection) {
+  Strophe2.SASLPlain = function () {};
+  Strophe2.SASLPlain.prototype = new Strophe2.SASLMechanism("PLAIN", true, 50);
+  Strophe2.SASLPlain.prototype.test = function (connection) {
     return connection.authcid !== null;
   };
-  Strophe.SASLPlain.prototype.onChallenge = function (connection) {
+  Strophe2.SASLPlain.prototype.onChallenge = function (connection) {
     var auth_str = connection.authzid;
     auth_str = auth_str + "\0";
     auth_str = auth_str + connection.authcid;
@@ -72131,12 +72131,12 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *  SASL SCRAM SHA 1 authentication.
    */
 
-  Strophe.SASLSHA1 = function () {};
-  Strophe.SASLSHA1.prototype = new Strophe.SASLMechanism("SCRAM-SHA-1", true, 70);
-  Strophe.SASLSHA1.prototype.test = function (connection) {
+  Strophe2.SASLSHA1 = function () {};
+  Strophe2.SASLSHA1.prototype = new Strophe2.SASLMechanism("SCRAM-SHA-1", true, 70);
+  Strophe2.SASLSHA1.prototype.test = function (connection) {
     return connection.authcid !== null;
   };
-  Strophe.SASLSHA1.prototype.onChallenge = function (connection, challenge, test_cnonce) {
+  Strophe2.SASLSHA1.prototype.onChallenge = function (connection, challenge, test_cnonce) {
     var cnonce = test_cnonce || MD5.hexdigest("" + Math.random() * 1234567890);
     var auth_str = "n=" + utils.utf16to8(connection.authcid);
     auth_str += ",r=";
@@ -72199,9 +72199,9 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *  SASL DIGEST MD5 authentication.
    */
 
-  Strophe.SASLMD5 = function () {};
-  Strophe.SASLMD5.prototype = new Strophe.SASLMechanism("DIGEST-MD5", false, 60);
-  Strophe.SASLMD5.prototype.test = function (connection) {
+  Strophe2.SASLMD5 = function () {};
+  Strophe2.SASLMD5.prototype = new Strophe2.SASLMechanism("DIGEST-MD5", false, 60);
+  Strophe2.SASLMD5.prototype.test = function (connection) {
     return connection.authcid !== null;
   };
   /** PrivateFunction: _quote
@@ -72214,11 +72214,11 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *    quoted string
    */
 
-  Strophe.SASLMD5.prototype._quote = function (str) {
+  Strophe2.SASLMD5.prototype._quote = function (str) {
     return '"' + str.replace(/\\/g, "\\\\").replace(/"/g, '\\"') + '"'; //" end string workaround for emacs
   };
 
-  Strophe.SASLMD5.prototype.onChallenge = function (connection, challenge, test_cnonce) {
+  Strophe2.SASLMD5.prototype.onChallenge = function (connection, challenge, test_cnonce) {
     var attribMatch = /([a-z]+)=("[^"]+"|[^,"]+)(?:,|$)/;
     var cnonce = test_cnonce || MD5.hexdigest("" + Math.random() * 1234567890);
     var realm = "";
@@ -72270,12 +72270,12 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *  SASL OAuth Bearer authentication.
    */
 
-  Strophe.SASLOAuthBearer = function () {};
-  Strophe.SASLOAuthBearer.prototype = new Strophe.SASLMechanism("OAUTHBEARER", true, 40);
-  Strophe.SASLOAuthBearer.prototype.test = function (connection) {
+  Strophe2.SASLOAuthBearer = function () {};
+  Strophe2.SASLOAuthBearer.prototype = new Strophe2.SASLMechanism("OAUTHBEARER", true, 40);
+  Strophe2.SASLOAuthBearer.prototype.test = function (connection) {
     return connection.pass !== null;
   };
-  Strophe.SASLOAuthBearer.prototype.onChallenge = function (connection) {
+  Strophe2.SASLOAuthBearer.prototype.onChallenge = function (connection) {
     var auth_str = 'n,';
     if (connection.authcid !== null) {
       auth_str = auth_str + 'a=' + connection.authzid;
@@ -72297,15 +72297,15 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *  TLS services.
    */
 
-  Strophe.SASLExternal = function () {};
-  Strophe.SASLExternal.prototype = new Strophe.SASLMechanism("EXTERNAL", true, 10);
-  Strophe.SASLExternal.prototype.onChallenge = function (connection) {
+  Strophe2.SASLExternal = function () {};
+  Strophe2.SASLExternal.prototype = new Strophe2.SASLMechanism("EXTERNAL", true, 10);
+  Strophe2.SASLExternal.prototype.onChallenge = function (connection) {
     /** According to XEP-178, an authzid SHOULD NOT be presented when the
      * authcid contained or implied in the client certificate is the JID (i.e.
      * authzid) with which the user wants to log in as.
      *
      * To NOT send the authzid, the user should therefore set the authcid equal
-     * to the JID when instantiating a new Strophe.Connection object.
+     * to the JID when instantiating a new Strophe2.Connection object.
      */
     return connection.authcid === connection.authzid ? '' : connection.authzid;
   };
@@ -72313,12 +72313,12 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *  SASL X-OAuth2 authentication.
    */
 
-  Strophe.SASLXOAuth2 = function () {};
-  Strophe.SASLXOAuth2.prototype = new Strophe.SASLMechanism("X-OAUTH2", true, 30);
-  Strophe.SASLXOAuth2.prototype.test = function (connection) {
+  Strophe2.SASLXOAuth2 = function () {};
+  Strophe2.SASLXOAuth2.prototype = new Strophe2.SASLMechanism("X-OAUTH2", true, 30);
+  Strophe2.SASLXOAuth2.prototype.test = function (connection) {
     return connection.pass !== null;
   };
-  Strophe.SASLXOAuth2.prototype.onChallenge = function (connection) {
+  Strophe2.SASLXOAuth2.prototype.onChallenge = function (connection) {
     var auth_str = "\0";
     if (connection.authcid !== null) {
       auth_str = auth_str + connection.authzid;
@@ -72328,7 +72328,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     return utils.utf16to8(auth_str);
   };
   var core = {
-    'Strophe': Strophe,
+    'Strophe2': Strophe2,
     '$build': $build,
     '$iq': $iq,
     '$msg': $msg,
@@ -72346,18 +72346,18 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       Please see the LICENSE file for details.
        Copyright 2006-2008, OGG, LLC
   */
-  var Strophe$1 = core.Strophe;
+  var Strophe2$1 = core.Strophe2;
   var $build$1 = core.$build;
-  /** PrivateClass: Strophe.Request
+  /** PrivateClass: Strophe2.Request
    *  _Private_ helper class that provides a cross implementation abstraction
    *  for a BOSH related XMLHttpRequest.
    *
-   *  The Strophe.Request class is used internally to encapsulate BOSH request
+   *  The Strophe2.Request class is used internally to encapsulate BOSH request
    *  information.  It is not meant to be used from user's code.
    */
 
-  /** PrivateConstructor: Strophe.Request
-   *  Create and initialize a new Strophe.Request object.
+  /** PrivateConstructor: Strophe2.Request
+   *  Create and initialize a new Strophe2.Request object.
    *
    *  Parameters:
    *    (XMLElement) elem - The XML data to be sent in the request.
@@ -72367,10 +72367,10 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
    *    (Integer) sends - The number of times this same request has been sent.
    */
 
-  Strophe$1.Request = function (elem, func, rid, sends) {
-    this.id = ++Strophe$1._requestId;
+  Strophe2$1.Request = function (elem, func, rid, sends) {
+    this.id = ++Strophe2$1._requestId;
     this.xmlData = elem;
-    this.data = Strophe$1.serialize(elem); // save original function in case we need to make a new request
+    this.data = Strophe2$1.serialize(elem); // save original function in case we need to make a new request
     // from this one.
 
     this.origFunc = func;
@@ -72396,7 +72396,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     };
     this.xhr = this._newXHR();
   };
-  Strophe$1.Request.prototype = {
+  Strophe2$1.Request.prototype = {
     /** PrivateFunction: getResponse
      *  Get a response from the underlying XMLHttpRequest.
      *
@@ -72415,22 +72415,22 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       if (this.xhr.responseXML && this.xhr.responseXML.documentElement) {
         node = this.xhr.responseXML.documentElement;
         if (node.tagName === "parsererror") {
-          Strophe$1.error("invalid response received");
-          Strophe$1.error("responseText: " + this.xhr.responseText);
-          Strophe$1.error("responseXML: " + Strophe$1.serialize(this.xhr.responseXML));
+          Strophe2$1.error("invalid response received");
+          Strophe2$1.error("responseText: " + this.xhr.responseText);
+          Strophe2$1.error("responseXML: " + Strophe2$1.serialize(this.xhr.responseXML));
           throw new Error("parsererror");
         }
       } else if (this.xhr.responseText) {
         // In React Native, we may get responseText but no responseXML.  We can try to parse it manually.
-        Strophe$1.debug("Got responseText but no responseXML; attempting to parse it with DOMParser...");
+        Strophe2$1.debug("Got responseText but no responseXML; attempting to parse it with DOMParser...");
         node = new DOMParser().parseFromString(this.xhr.responseText, 'application/xml').documentElement;
         if (!node) {
           throw new Error('Parsing produced null node');
         } else if (node.querySelector('parsererror')) {
-          Strophe$1.error("invalid response received: " + node.querySelector('parsererror').textContent);
-          Strophe$1.error("responseText: " + this.xhr.responseText);
+          Strophe2$1.error("invalid response received: " + node.querySelector('parsererror').textContent);
+          Strophe2$1.error("responseText: " + this.xhr.responseText);
           var error = new Error();
-          error.name = Strophe$1.ErrorCondition.BAD_FORMAT;
+          error.name = Strophe2$1.ErrorCondition.BAD_FORMAT;
           throw error;
         }
       }
@@ -72459,32 +72459,32 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       return xhr;
     }
   };
-  /** Class: Strophe.Bosh
+  /** Class: Strophe2.Bosh
    *  _Private_ helper class that handles BOSH Connections
    *
-   *  The Strophe.Bosh class is used internally by Strophe.Connection
+   *  The Strophe2.Bosh class is used internally by Strophe2.Connection
    *  to encapsulate BOSH sessions. It is not meant to be used from user's code.
    */
 
   /** File: bosh.js
-   *  A JavaScript library to enable BOSH in Strophejs.
+   *  A JavaScript library to enable BOSH in Strophe2js.
    *
    *  this library uses Bidirectional-streams Over Synchronous HTTP (BOSH)
    *  to emulate a persistent, stateful, two-way connection to an XMPP server.
    *  More information on BOSH can be found in XEP 124.
    */
 
-  /** PrivateConstructor: Strophe.Bosh
-   *  Create and initialize a Strophe.Bosh object.
+  /** PrivateConstructor: Strophe2.Bosh
+   *  Create and initialize a Strophe2.Bosh object.
    *
    *  Parameters:
-   *    (Strophe.Connection) connection - The Strophe.Connection that will use BOSH.
+   *    (Strophe2.Connection) connection - The Strophe2.Connection that will use BOSH.
    *
    *  Returns:
-   *    A new Strophe.Bosh object.
+   *    A new Strophe2.Bosh object.
    */
 
-  Strophe$1.Bosh = function (connection) {
+  Strophe2$1.Bosh = function (connection) {
     this._conn = connection;
     /* request id for body tags */
 
@@ -72501,29 +72501,29 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     this.lastResponseHeaders = null;
     this._requests = [];
   };
-  Strophe$1.Bosh.prototype = {
+  Strophe2$1.Bosh.prototype = {
     /** Variable: strip
      *
      *  BOSH-Connections will have all stanzas wrapped in a <body> tag when
-     *  passed to <Strophe.Connection.xmlInput> or <Strophe.Connection.xmlOutput>.
-     *  To strip this tag, User code can set <Strophe.Bosh.strip> to "body":
+     *  passed to <Strophe2.Connection.xmlInput> or <Strophe2.Connection.xmlOutput>.
+     *  To strip this tag, User code can set <Strophe2.Bosh.strip> to "body":
      *
-     *  > Strophe.Bosh.prototype.strip = "body";
+     *  > Strophe2.Bosh.prototype.strip = "body";
      *
      *  This will enable stripping of the body tag in both
-     *  <Strophe.Connection.xmlInput> and <Strophe.Connection.xmlOutput>.
+     *  <Strophe2.Connection.xmlInput> and <Strophe2.Connection.xmlOutput>.
      */
     strip: null,
     /** PrivateFunction: _buildBody
      *  _Private_ helper function to generate the <body/> wrapper for BOSH.
      *
      *  Returns:
-     *    A Strophe.Builder with a <body/> element.
+     *    A Strophe2.Builder with a <body/> element.
      */
     _buildBody: function _buildBody() {
       var bodyWrap = $build$1('body', {
         'rid': this.rid++,
-        'xmlns': Strophe$1.NS.HTTPBIND
+        'xmlns': Strophe2$1.NS.HTTPBIND
       });
       if (this.sid !== null) {
         bodyWrap.attrs({
@@ -72538,14 +72538,14 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     /** PrivateFunction: _reset
      *  Reset the connection.
      *
-     *  This function is called by the reset function of the Strophe Connection
+     *  This function is called by the reset function of the Strophe2 Connection
      */
     _reset: function _reset() {
       this.rid = Math.floor(Math.random() * 4294967295);
       this.sid = null;
       this.errors = 0;
       if (this._conn._sessionCachingSupported()) {
-        window.sessionStorage.removeItem('strophe-bosh-session');
+        window.sessionStorage.removeItem('Strophe2-bosh-session');
       }
       this._conn.nextValidRid(this.rid);
     },
@@ -72566,7 +72566,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         "content": "text/xml; charset=utf-8",
         "ver": "1.6",
         "xmpp:version": "1.0",
-        "xmlns:xmpp": Strophe$1.NS.BOSH
+        "xmlns:xmpp": Strophe2$1.NS.BOSH
       });
       if (route) {
         body.attrs({
@@ -72574,13 +72574,13 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         });
       }
       var _connect_cb = this._conn._connect_cb;
-      this._requests.push(new Strophe$1.Request(body.tree(), this._onRequestStateChange.bind(this, _connect_cb.bind(this._conn)), body.tree().getAttribute("rid")));
+      this._requests.push(new Strophe2$1.Request(body.tree(), this._onRequestStateChange.bind(this, _connect_cb.bind(this._conn)), body.tree().getAttribute("rid")));
       this._throttledRequestHandler();
     },
     /** PrivateFunction: _attach
      *  Attach to an already created and authenticated BOSH session.
      *
-     *  This function is provided to allow Strophe to attach to BOSH
+     *  This function is provided to allow Strophe2 to attach to BOSH
      *  sessions which have been created externally, perhaps by a Web
      *  application.  This is often used to support auto-login type features
      *  without putting user credentials into the page.
@@ -72594,7 +72594,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    (Integer) wait - The optional HTTPBIND wait value.  This is the
      *      time the server will wait before returning an empty result for
      *      a request.  The default setting of 60 seconds is recommended.
-     *      Other settings will require tweaks to the Strophe.TIMEOUT value.
+     *      Other settings will require tweaks to the Strophe2.TIMEOUT value.
      *    (Integer) hold - The optional HTTPBIND hold value.  This is the
      *      number of connections the server will hold at one time.  This
      *      should almost always be set to 1 (the default).
@@ -72606,13 +72606,13 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       this.sid = sid;
       this.rid = rid;
       this._conn.connect_callback = callback;
-      this._conn.domain = Strophe$1.getDomainFromJid(this._conn.jid);
+      this._conn.domain = Strophe2$1.getDomainFromJid(this._conn.jid);
       this._conn.authenticated = true;
       this._conn.connected = true;
       this.wait = wait || this.wait;
       this.hold = hold || this.hold;
       this.window = wind || this.window;
-      this._conn._changeConnectStatus(Strophe$1.Status.ATTACHED, null);
+      this._conn._changeConnectStatus(Strophe2$1.Status.ATTACHED, null);
     },
     /** PrivateFunction: _restore
      *  Attempt to restore a cached BOSH session
@@ -72626,7 +72626,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *    (Integer) wait - The optional HTTPBIND wait value.  This is the
      *      time the server will wait before returning an empty result for
      *      a request.  The default setting of 60 seconds is recommended.
-     *      Other settings will require tweaks to the Strophe.TIMEOUT value.
+     *      Other settings will require tweaks to the Strophe2.TIMEOUT value.
      *    (Integer) hold - The optional HTTPBIND hold value.  This is the
      *      number of connections the server will hold at one time.  This
      *      should almost always be set to 1 (the default).
@@ -72634,16 +72634,16 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *      allowed range of request ids that are valid.  The default is 5.
      */
     _restore: function _restore(jid, callback, wait, hold, wind) {
-      var session = JSON.parse(window.sessionStorage.getItem('strophe-bosh-session'));
-      if (typeof session !== "undefined" && session !== null && session.rid && session.sid && session.jid && (typeof jid === "undefined" || jid === null || Strophe$1.getBareJidFromJid(session.jid) === Strophe$1.getBareJidFromJid(jid) ||
+      var session = JSON.parse(window.sessionStorage.getItem('Strophe2-bosh-session'));
+      if (typeof session !== "undefined" && session !== null && session.rid && session.sid && session.jid && (typeof jid === "undefined" || jid === null || Strophe2$1.getBareJidFromJid(session.jid) === Strophe2$1.getBareJidFromJid(jid) ||
       // If authcid is null, then it's an anonymous login, so
       // we compare only the domains:
-      Strophe$1.getNodeFromJid(jid) === null && Strophe$1.getDomainFromJid(session.jid) === jid)) {
+      Strophe2$1.getNodeFromJid(jid) === null && Strophe2$1.getDomainFromJid(session.jid) === jid)) {
         this._conn.restored = true;
         this._attach(session.jid, session.sid, session.rid, callback, wait, hold, wind);
       } else {
         var error = new Error("_restore: no restoreable session.");
-        error.name = "StropheSessionError";
+        error.name = "Strophe2SessionError";
         throw error;
       }
     },
@@ -72652,19 +72652,19 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *
      *  This handler is used to process the Bosh-part of the initial request.
      *  Parameters:
-     *    (Strophe.Request) bodyWrap - The received stanza.
+     *    (Strophe2.Request) bodyWrap - The received stanza.
      */
     _cacheSession: function _cacheSession() {
       if (this._conn.authenticated) {
         if (this._conn.jid && this.rid && this.sid) {
-          window.sessionStorage.setItem('strophe-bosh-session', JSON.stringify({
+          window.sessionStorage.setItem('Strophe2-bosh-session', JSON.stringify({
             'jid': this._conn.jid,
             'rid': this.rid,
             'sid': this.sid
           }));
         }
       } else {
-        window.sessionStorage.removeItem('strophe-bosh-session');
+        window.sessionStorage.removeItem('Strophe2-bosh-session');
       }
     },
     /** PrivateFunction: _connect_cb
@@ -72672,25 +72672,25 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *
      *  This handler is used to process the Bosh-part of the initial request.
      *  Parameters:
-     *    (Strophe.Request) bodyWrap - The received stanza.
+     *    (Strophe2.Request) bodyWrap - The received stanza.
      */
     _connect_cb: function _connect_cb(bodyWrap) {
       var typ = bodyWrap.getAttribute("type");
       if (typ !== null && typ === "terminate") {
         // an error occurred
         var cond = bodyWrap.getAttribute("condition");
-        Strophe$1.error("BOSH-Connection failed: " + cond);
+        Strophe2$1.error("BOSH-Connection failed: " + cond);
         var conflict = bodyWrap.getElementsByTagName("conflict");
         if (cond !== null) {
           if (cond === "remote-stream-error" && conflict.length > 0) {
             cond = "conflict";
           }
-          this._conn._changeConnectStatus(Strophe$1.Status.CONNFAIL, cond);
+          this._conn._changeConnectStatus(Strophe2$1.Status.CONNFAIL, cond);
         } else {
-          this._conn._changeConnectStatus(Strophe$1.Status.CONNFAIL, "unknown");
+          this._conn._changeConnectStatus(Strophe2$1.Status.CONNFAIL, "unknown");
         }
         this._conn._doDisconnect(cond);
-        return Strophe$1.Status.CONNFAIL;
+        return Strophe2$1.Status.CONNFAIL;
       } // check to make sure we don't overwrite these if _connect_cb is
       // called multiple times in the case of missing stream:features
 
@@ -72732,7 +72732,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       this.sid = null;
       this.rid = Math.floor(Math.random() * 4294967295);
       if (this._conn._sessionCachingSupported()) {
-        window.sessionStorage.removeItem('strophe-bosh-session');
+        window.sessionStorage.removeItem('Strophe2-bosh-session');
       }
       this._conn.nextValidRid(this.rid);
     },
@@ -72749,7 +72749,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  _Private_ function to call error handlers registered for HTTP errors.
      *
      *  Parameters:
-     *    (Strophe.Request) req - The request that is changing readyState.
+     *    (Strophe2.Request) req - The request that is changing readyState.
      */
     _callProtocolErrorHandlers: function _callProtocolErrorHandlers(req) {
       var reqStatus = this._getRequestStatus(req);
@@ -72770,7 +72770,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      */
     _hitError: function _hitError(reqStatus) {
       this.errors++;
-      Strophe$1.warn("request errored, status: " + reqStatus + ", number of errors: " + this.errors);
+      Strophe2$1.warn("request errored, status: " + reqStatus + ", number of errors: " + this.errors);
       if (this.errors > 4) {
         this._conn._onDisconnectTimeout();
       }
@@ -72781,14 +72781,14 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      * has been received and sends a blank poll request.
      */
     _no_auth_received: function _no_auth_received(callback) {
-      Strophe$1.warn("Server did not yet offer a supported authentication " + "mechanism. Sending a blank poll request.");
+      Strophe2$1.warn("Server did not yet offer a supported authentication " + "mechanism. Sending a blank poll request.");
       if (callback) {
         callback = callback.bind(this._conn);
       } else {
         callback = this._conn._connect_cb.bind(this._conn);
       }
       var body = this._buildBody();
-      this._requests.push(new Strophe$1.Request(body.tree(), this._onRequestStateChange.bind(this, callback), body.tree().getAttribute("rid")));
+      this._requests.push(new Strophe2$1.Request(body.tree(), this._onRequestStateChange.bind(this, callback), body.tree().getAttribute("rid")));
       this._throttledRequestHandler();
     },
     /** PrivateFunction: _onDisconnectTimeout
@@ -72811,7 +72811,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       }
     },
     /** PrivateFunction: _onIdle
-     *  _Private_ handler called by Strophe.Connection._onIdle
+     *  _Private_ handler called by Strophe2.Connection._onIdle
      *
      *  Sends all queued Requests or polls with empty Request if there are none.
      */
@@ -72819,7 +72819,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       var data = this._conn._data; // if no requests are in progress, poll
 
       if (this._conn.authenticated && this._requests.length === 0 && data.length === 0 && !this._conn.disconnecting) {
-        Strophe$1.debug("no requests during idle cycle, sending blank request");
+        Strophe2$1.debug("no requests during idle cycle, sending blank request");
         data.push(null);
       }
       if (this._conn.paused) {
@@ -72834,7 +72834,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
                 "to": this._conn.domain,
                 "xml:lang": "en",
                 "xmpp:restart": "true",
-                "xmlns:xmpp": Strophe$1.NS.BOSH
+                "xmlns:xmpp": Strophe2$1.NS.BOSH
               });
             } else {
               body.cnode(data[i]).up();
@@ -72843,28 +72843,28 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         }
         delete this._conn._data;
         this._conn._data = [];
-        this._requests.push(new Strophe$1.Request(body.tree(), this._onRequestStateChange.bind(this, this._conn._dataRecv.bind(this._conn)), body.tree().getAttribute("rid")));
+        this._requests.push(new Strophe2$1.Request(body.tree(), this._onRequestStateChange.bind(this, this._conn._dataRecv.bind(this._conn)), body.tree().getAttribute("rid")));
         this._throttledRequestHandler();
       }
       if (this._requests.length > 0) {
         var time_elapsed = this._requests[0].age();
         if (this._requests[0].dead !== null) {
-          if (this._requests[0].timeDead() > Math.floor(Strophe$1.SECONDARY_TIMEOUT * this.wait)) {
+          if (this._requests[0].timeDead() > Math.floor(Strophe2$1.SECONDARY_TIMEOUT * this.wait)) {
             this._throttledRequestHandler();
           }
         }
-        if (time_elapsed > Math.floor(Strophe$1.TIMEOUT * this.wait)) {
-          Strophe$1.warn("Request " + this._requests[0].id + " timed out, over " + Math.floor(Strophe$1.TIMEOUT * this.wait) + " seconds since last activity");
+        if (time_elapsed > Math.floor(Strophe2$1.TIMEOUT * this.wait)) {
+          Strophe2$1.warn("Request " + this._requests[0].id + " timed out, over " + Math.floor(Strophe2$1.TIMEOUT * this.wait) + " seconds since last activity");
           this._throttledRequestHandler();
         }
       }
     },
     /** PrivateFunction: _getRequestStatus
      *
-     *  Returns the HTTP status code from a Strophe.Request
+     *  Returns the HTTP status code from a Strophe2.Request
      *
      *  Parameters:
-     *    (Strophe.Request) req - The Strophe.Request instance.
+     *    (Strophe2.Request) req - The Strophe2.Request instance.
      *    (Integer) def - The default value that should be returned if no
      *          status value was found.
      */
@@ -72876,7 +72876,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         } catch (e) {
           // ignore errors from undefined status attribute. Works
           // around a browser bug
-          Strophe$1.error("Caught an error while retrieving a request's status, " + "reqStatus: " + reqStatus);
+          Strophe2$1.error("Caught an error while retrieving a request's status, " + "reqStatus: " + reqStatus);
         }
       }
       if (typeof reqStatus === "undefined") {
@@ -72885,7 +72885,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       return reqStatus;
     },
     /** PrivateFunction: _onRequestStateChange
-     *  _Private_ handler for Strophe.Request state changes.
+     *  _Private_ handler for Strophe2.Request state changes.
      *
      *  This function is called when the XMLHttpRequest readyState changes.
      *  It contains a lot of error handling logic for the many ways that
@@ -72894,10 +72894,10 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *
      *  Parameters:
      *    (Function) func - The handler for the request.
-     *    (Strophe.Request) req - The request that is changing readyState.
+     *    (Strophe2.Request) req - The request that is changing readyState.
      */
     _onRequestStateChange: function _onRequestStateChange(func, req) {
-      Strophe$1.debug("request id " + req.id + "." + req.sends + " state changed to " + req.xhr.readyState);
+      Strophe2$1.debug("request id " + req.id + "." + req.sends + " state changed to " + req.xhr.readyState);
       if (req.abort) {
         req.abort = false;
         return;
@@ -72918,40 +72918,40 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       if (valid_request || too_many_retries) {
         // remove from internal queue
         this._removeRequest(req);
-        Strophe$1.debug("request id " + req.id + " should now be removed");
+        Strophe2$1.debug("request id " + req.id + " should now be removed");
       }
       if (reqStatus === 200) {
         // request succeeded
         var reqIs0 = this._requests[0] === req;
         var reqIs1 = this._requests[1] === req; // if request 1 finished, or request 0 finished and request
-        // 1 is over Strophe.SECONDARY_TIMEOUT seconds old, we need to
+        // 1 is over Strophe2.SECONDARY_TIMEOUT seconds old, we need to
         // restart the other - both will be in the first spot, as the
         // completed request has been removed from the queue already
 
-        if (reqIs1 || reqIs0 && this._requests.length > 0 && this._requests[0].age() > Math.floor(Strophe$1.SECONDARY_TIMEOUT * this.wait)) {
+        if (reqIs1 || reqIs0 && this._requests.length > 0 && this._requests[0].age() > Math.floor(Strophe2$1.SECONDARY_TIMEOUT * this.wait)) {
           this._restartRequest(0);
         }
         this._conn.nextValidRid(Number(req.rid) + 1);
-        Strophe$1.debug("request id " + req.id + "." + req.sends + " got 200");
+        Strophe2$1.debug("request id " + req.id + "." + req.sends + " got 200");
         func(req); // call handler
 
         this.errors = 0;
       } else if (reqStatus === 0 || reqStatus >= 400 && reqStatus < 600 || reqStatus >= 12000) {
         // request failed
-        Strophe$1.error("request id " + req.id + "." + req.sends + " error " + reqStatus + " happened");
+        Strophe2$1.error("request id " + req.id + "." + req.sends + " error " + reqStatus + " happened");
         this._hitError(reqStatus);
         this._callProtocolErrorHandlers(req);
         if (reqStatus >= 400 && reqStatus < 500) {
-          this._conn._changeConnectStatus(Strophe$1.Status.DISCONNECTING, null);
+          this._conn._changeConnectStatus(Strophe2$1.Status.DISCONNECTING, null);
           this._conn._doDisconnect();
         }
       } else {
-        Strophe$1.error("request id " + req.id + "." + req.sends + " error " + reqStatus + " happened");
+        Strophe2$1.error("request id " + req.id + "." + req.sends + " error " + reqStatus + " happened");
       }
       if (!valid_request && !too_many_retries) {
         this._throttledRequestHandler();
       } else if (too_many_retries && !this._conn.connected) {
-        this._conn._changeConnectStatus(Strophe$1.Status.CONNFAIL, "giving-up");
+        this._conn._changeConnectStatus(Strophe2$1.Status.CONNFAIL, "giving-up");
       }
     },
     /** PrivateFunction: _processRequest
@@ -72973,22 +72973,22 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         return;
       }
       var time_elapsed = req.age();
-      var primary_timeout = !isNaN(time_elapsed) && time_elapsed > Math.floor(Strophe$1.TIMEOUT * this.wait);
-      var secondary_timeout = req.dead !== null && req.timeDead() > Math.floor(Strophe$1.SECONDARY_TIMEOUT * this.wait);
+      var primary_timeout = !isNaN(time_elapsed) && time_elapsed > Math.floor(Strophe2$1.TIMEOUT * this.wait);
+      var secondary_timeout = req.dead !== null && req.timeDead() > Math.floor(Strophe2$1.SECONDARY_TIMEOUT * this.wait);
       var server_error = req.xhr.readyState === 4 && (reqStatus < 1 || reqStatus >= 500);
       if (primary_timeout || secondary_timeout || server_error) {
         if (secondary_timeout) {
-          Strophe$1.error("Request ".concat(this._requests[i].id, " timed out (secondary), restarting"));
+          Strophe2$1.error("Request ".concat(this._requests[i].id, " timed out (secondary), restarting"));
         }
         req.abort = true;
         req.xhr.abort(); // setting to null fails on IE6, so set to empty function
 
         req.xhr.onreadystatechange = function () {};
-        this._requests[i] = new Strophe$1.Request(req.xmlData, req.origFunc, req.rid, req.sends);
+        this._requests[i] = new Strophe2$1.Request(req.xmlData, req.origFunc, req.rid, req.sends);
         req = this._requests[i];
       }
       if (req.xhr.readyState === 0) {
-        Strophe$1.debug("request id " + req.id + "." + req.sends + " posting");
+        Strophe2$1.debug("request id " + req.id + "." + req.sends + " posting");
         try {
           var content_type = this._conn.options.contentType || "text/xml; charset=utf-8";
           req.xhr.open("POST", this._conn.service, this._conn.options.sync ? false : true);
@@ -73000,9 +73000,9 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
             req.xhr.withCredentials = true;
           }
         } catch (e2) {
-          Strophe$1.error("XHR open failed: " + e2.toString());
+          Strophe2$1.error("XHR open failed: " + e2.toString());
           if (!this._conn.connected) {
-            this._conn._changeConnectStatus(Strophe$1.Status.CONNFAIL, "bad-service");
+            this._conn._changeConnectStatus(Strophe2$1.Status.CONNFAIL, "bad-service");
           }
           this._conn.disconnect();
           return;
@@ -73026,7 +73026,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         if (req.sends > 1) {
           // Using a cube of the retry number creates a nicely
           // expanding retry window
-          var backoff = Math.min(Math.floor(Strophe$1.TIMEOUT * this.wait), Math.pow(req.sends, 3)) * 1000;
+          var backoff = Math.min(Math.floor(Strophe2$1.TIMEOUT * this.wait), Math.pow(req.sends, 3)) * 1000;
           setTimeout(function () {
             // XXX: setTimeout should be called only with function expressions (23974bc1)
             sendFunc();
@@ -73035,28 +73035,28 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
           sendFunc();
         }
         req.sends++;
-        if (this._conn.xmlOutput !== Strophe$1.Connection.prototype.xmlOutput) {
+        if (this._conn.xmlOutput !== Strophe2$1.Connection.prototype.xmlOutput) {
           if (req.xmlData.nodeName === this.strip && req.xmlData.childNodes.length) {
             this._conn.xmlOutput(req.xmlData.childNodes[0]);
           } else {
             this._conn.xmlOutput(req.xmlData);
           }
         }
-        if (this._conn.rawOutput !== Strophe$1.Connection.prototype.rawOutput) {
+        if (this._conn.rawOutput !== Strophe2$1.Connection.prototype.rawOutput) {
           this._conn.rawOutput(req.data);
         }
       } else {
-        Strophe$1.debug("_processRequest: " + (i === 0 ? "first" : "second") + " request has readyState of " + req.xhr.readyState);
+        Strophe2$1.debug("_processRequest: " + (i === 0 ? "first" : "second") + " request has readyState of " + req.xhr.readyState);
       }
     },
     /** PrivateFunction: _removeRequest
      *  _Private_ function to remove a request from the queue.
      *
      *  Parameters:
-     *    (Strophe.Request) req - The request to remove.
+     *    (Strophe2.Request) req - The request to remove.
      */
     _removeRequest: function _removeRequest(req) {
-      Strophe$1.debug("removing request");
+      Strophe2$1.debug("removing request");
       for (var i = this._requests.length - 1; i >= 0; i--) {
         if (req === this._requests[i]) {
           this._requests.splice(i, 1);
@@ -73098,7 +73098,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         if (e.message !== "parsererror") {
           throw e;
         }
-        this._conn.disconnect("strophe-parsererror");
+        this._conn.disconnect("Strophe2-parsererror");
       }
     },
     /** PrivateFunction: _sendTerminate
@@ -73109,14 +73109,14 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  presence if authentication has completed.
      */
     _sendTerminate: function _sendTerminate(pres) {
-      Strophe$1.debug("_sendTerminate was called");
+      Strophe2$1.debug("_sendTerminate was called");
       var body = this._buildBody().attrs({
         type: "terminate"
       });
       if (pres) {
         body.cnode(pres.tree());
       }
-      var req = new Strophe$1.Request(body.tree(), this._onRequestStateChange.bind(this, this._conn._dataRecv.bind(this._conn)), body.tree().getAttribute("rid"));
+      var req = new Strophe2$1.Request(body.tree(), this._onRequestStateChange.bind(this, this._conn._dataRecv.bind(this._conn)), body.tree().getAttribute("rid"));
       this._requests.push(req);
       this._throttledRequestHandler();
     },
@@ -73150,9 +73150,9 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      */
     _throttledRequestHandler: function _throttledRequestHandler() {
       if (!this._requests) {
-        Strophe$1.debug("_throttledRequestHandler called with " + "undefined requests");
+        Strophe2$1.debug("_throttledRequestHandler called with " + "undefined requests");
       } else {
-        Strophe$1.debug("_throttledRequestHandler called with " + this._requests.length + " requests");
+        Strophe2$1.debug("_throttledRequestHandler called with " + this._requests.length + " requests");
       }
       if (!this._requests || this._requests.length === 0) {
         return;
@@ -73171,39 +73171,39 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       Please see the LICENSE file for details.
        Copyright 2006-2008, OGG, LLC
   */
-  var Strophe$2 = core.Strophe;
+  var Strophe2$2 = core.Strophe2;
   var $build$2 = core.$build;
-  /** Class: Strophe.WebSocket
+  /** Class: Strophe2.WebSocket
    *  _Private_ helper class that handles WebSocket Connections
    *
-   *  The Strophe.WebSocket class is used internally by Strophe.Connection
+   *  The Strophe2.WebSocket class is used internally by Strophe2.Connection
    *  to encapsulate WebSocket sessions. It is not meant to be used from user's code.
    */
 
   /** File: websocket.js
-   *  A JavaScript library to enable XMPP over Websocket in Strophejs.
+   *  A JavaScript library to enable XMPP over Websocket in Strophe2js.
    *
-   *  This file implements XMPP over WebSockets for Strophejs.
+   *  This file implements XMPP over WebSockets for Strophe2js.
    *  If a Connection is established with a Websocket url (ws://...)
-   *  Strophe will use WebSockets.
+   *  Strophe2 will use WebSockets.
    *  For more information on XMPP-over-WebSocket see RFC 7395:
    *  http://tools.ietf.org/html/rfc7395
    *
    *  WebSocket support implemented by Andreas Guth (andreas.guth@rwth-aachen.de)
    */
 
-  /** PrivateConstructor: Strophe.Websocket
-   *  Create and initialize a Strophe.WebSocket object.
+  /** PrivateConstructor: Strophe2.Websocket
+   *  Create and initialize a Strophe2.WebSocket object.
    *  Currently only sets the connection Object.
    *
    *  Parameters:
-   *    (Strophe.Connection) connection - The Strophe.Connection that will use WebSockets.
+   *    (Strophe2.Connection) connection - The Strophe2.Connection that will use WebSockets.
    *
    *  Returns:
-   *    A new Strophe.WebSocket object.
+   *    A new Strophe2.WebSocket object.
    */
 
-  Strophe$2.Websocket = function (connection) {
+  Strophe2$2.Websocket = function (connection) {
     this._conn = connection;
     this.strip = "wrapper";
     var service = connection.service;
@@ -73225,16 +73225,16 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       connection.service = new_service;
     }
   };
-  Strophe$2.Websocket.prototype = {
+  Strophe2$2.Websocket.prototype = {
     /** PrivateFunction: _buildStream
      *  _Private_ helper function to generate the <stream> start tag for WebSockets
      *
      *  Returns:
-     *    A Strophe.Builder with a <stream> element.
+     *    A Strophe2.Builder with a <stream> element.
      */
     _buildStream: function _buildStream() {
       return $build$2("open", {
-        "xmlns": Strophe$2.NS.FRAMING,
+        "xmlns": Strophe2$2.NS.FRAMING,
         "to": this._conn.domain,
         "version": '1.0'
       });
@@ -73243,7 +73243,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      * _Private_ checks a message for stream:error
      *
      *  Parameters:
-     *    (Strophe.Request) bodyWrap - The received stanza.
+     *    (Strophe2.Request) bodyWrap - The received stanza.
      *    connectstatus - The ConnectStatus that will be set on error.
      *  Returns:
      *     true if there was a streamerror, false otherwise.
@@ -73251,7 +73251,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     _check_streamerror: function _check_streamerror(bodyWrap, connectstatus) {
       var errors;
       if (bodyWrap.getElementsByTagNameNS) {
-        errors = bodyWrap.getElementsByTagNameNS(Strophe$2.NS.STREAM, "error");
+        errors = bodyWrap.getElementsByTagNameNS(Strophe2$2.NS.STREAM, "error");
       } else {
         errors = bodyWrap.getElementsByTagName("stream:error");
       }
@@ -73282,7 +73282,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       if (text) {
         errorString += " - " + text;
       }
-      Strophe$2.error(errorString); // close the connection on stream_error
+      Strophe2$2.error(errorString); // close the connection on stream_error
 
       this._conn._changeConnectStatus(connectstatus, condition);
       this._conn._doDisconnect();
@@ -73291,14 +73291,14 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
     /** PrivateFunction: _reset
      *  Reset the connection.
      *
-     *  This function is called by the reset function of the Strophe Connection.
+     *  This function is called by the reset function of the Strophe2 Connection.
      *  Is not needed by WebSockets.
      */
     _reset: function _reset() {
       return;
     },
     /** PrivateFunction: _connect
-     *  _Private_ function called by Strophe.Connection.connect
+     *  _Private_ function called by Strophe2.Connection.connect
      *
      *  Creates a WebSocket for a connection and assigns Callbacks to it.
      *  Does nothing if there already is a WebSocket.
@@ -73314,17 +73314,17 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       this.socket.onmessage = this._connect_cb_wrapper.bind(this);
     },
     /** PrivateFunction: _connect_cb
-     *  _Private_ function called by Strophe.Connection._connect_cb
+     *  _Private_ function called by Strophe2.Connection._connect_cb
      *
      * checks for stream:error
      *
      *  Parameters:
-     *    (Strophe.Request) bodyWrap - The received stanza.
+     *    (Strophe2.Request) bodyWrap - The received stanza.
      */
     _connect_cb: function _connect_cb(bodyWrap) {
-      var error = this._check_streamerror(bodyWrap, Strophe$2.Status.CONNFAIL);
+      var error = this._check_streamerror(bodyWrap, Strophe2$2.Status.CONNFAIL);
       if (error) {
-        return Strophe$2.Status.CONNFAIL;
+        return Strophe2$2.Status.CONNFAIL;
       }
     },
     /** PrivateFunction: _handleStreamStart
@@ -73341,7 +73341,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       var ns = message.getAttribute("xmlns");
       if (typeof ns !== "string") {
         error = "Missing xmlns in <open />";
-      } else if (ns !== Strophe$2.NS.FRAMING) {
+      } else if (ns !== Strophe2$2.NS.FRAMING) {
         error = "Wrong xmlns in <open />: " + ns;
       }
       var ver = message.getAttribute("version");
@@ -73351,7 +73351,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         error = "Wrong version in <open />: " + ver;
       }
       if (error) {
-        this._conn._changeConnectStatus(Strophe$2.Status.CONNFAIL, error);
+        this._conn._changeConnectStatus(Strophe2$2.Status.CONNFAIL, error);
         this._conn._doDisconnect();
         return false;
       }
@@ -73389,13 +73389,13 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
 
           var isSecureRedirect = service.indexOf("wss:") >= 0 && see_uri.indexOf("wss:") >= 0 || service.indexOf("ws:") >= 0;
           if (isSecureRedirect) {
-            this._conn._changeConnectStatus(Strophe$2.Status.REDIRECT, "Received see-other-uri, resetting connection");
+            this._conn._changeConnectStatus(Strophe2$2.Status.REDIRECT, "Received see-other-uri, resetting connection");
             this._conn.reset();
             this._conn.service = see_uri;
             this._connect();
           }
         } else {
-          this._conn._changeConnectStatus(Strophe$2.Status.CONNFAIL, "Received closing stream");
+          this._conn._changeConnectStatus(Strophe2$2.Status.CONNFAIL, "Received closing stream");
           this._conn._doDisconnect();
         }
       } else {
@@ -73406,7 +73406,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       }
     },
     /** PrivateFunction: _disconnect
-     *  _Private_ function called by Strophe.Connection.disconnect
+     *  _Private_ function called by Strophe2.Connection.disconnect
      *
      *  Disconnects and sends a last stanza if one is given
      *
@@ -73419,15 +73419,15 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
           this._conn.send(pres);
         }
         var close = $build$2("close", {
-          "xmlns": Strophe$2.NS.FRAMING
+          "xmlns": Strophe2$2.NS.FRAMING
         });
         this._conn.xmlOutput(close.tree());
-        var closeString = Strophe$2.serialize(close);
+        var closeString = Strophe2$2.serialize(close);
         this._conn.rawOutput(closeString);
         try {
           this.socket.send(closeString);
         } catch (e) {
-          Strophe$2.warn("Couldn't send <close /> tag.");
+          Strophe2$2.warn("Couldn't send <close /> tag.");
         }
       }
       this._conn._doDisconnect();
@@ -73438,12 +73438,12 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      *  Just closes the Socket for WebSockets
      */
     _doDisconnect: function _doDisconnect() {
-      Strophe$2.debug("WebSockets _doDisconnect was called");
+      Strophe2$2.debug("WebSockets _doDisconnect was called");
       this._closeSocket();
     },
     /** PrivateFunction _streamWrap
      *  _Private_ helper function to wrap a stanza in a <stream> tag.
-     *  This is used so Strophe can process stanzas from WebSockets like BOSH
+     *  This is used so Strophe2 can process stanzas from WebSockets like BOSH
      */
     _streamWrap: function _streamWrap(stanza) {
       return "<wrapper>" + stanza + '</wrapper>';
@@ -73461,7 +73461,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
           this.socket.onmessage = null;
           this.socket.close();
         } catch (e) {
-          Strophe$2.debug(e.message);
+          Strophe2$2.debug(e.message);
         }
       }
       this.socket = null;
@@ -73482,18 +73482,18 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      */
     _onClose: function _onClose(e) {
       if (this._conn.connected && !this._conn.disconnecting) {
-        Strophe$2.error("Websocket closed unexpectedly");
+        Strophe2$2.error("Websocket closed unexpectedly");
         this._conn._doDisconnect();
       } else if (e && e.code === 1006 && !this._conn.connected && this.socket) {
         // in case the onError callback was not called (Safari 10 does not
         // call onerror when the initial connection fails) we need to
         // dispatch a CONNFAIL status update to be consistent with the
         // behavior on other browsers.
-        Strophe$2.error("Websocket closed unexcectedly");
-        this._conn._changeConnectStatus(Strophe$2.Status.CONNFAIL, "The WebSocket connection could not be established or was disconnected.");
+        Strophe2$2.error("Websocket closed unexcectedly");
+        this._conn._changeConnectStatus(Strophe2$2.Status.CONNFAIL, "The WebSocket connection could not be established or was disconnected.");
         this._conn._doDisconnect();
       } else {
-        Strophe$2.debug("Websocket closed");
+        Strophe2$2.debug("Websocket closed");
       }
     },
     /** PrivateFunction: _no_auth_received
@@ -73502,8 +73502,8 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      * has been received.
      */
     _no_auth_received: function _no_auth_received(callback) {
-      Strophe$2.error("Server did not offer a supported authentication mechanism");
-      this._conn._changeConnectStatus(Strophe$2.Status.CONNFAIL, Strophe$2.ErrorCondition.NO_AUTH_MECH);
+      Strophe2$2.error("Server did not offer a supported authentication mechanism");
+      this._conn._changeConnectStatus(Strophe2$2.Status.CONNFAIL, Strophe2$2.ErrorCondition.NO_AUTH_MECH);
       if (callback) {
         callback.call(this._conn);
       }
@@ -73526,12 +73526,12 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      * (Object) error - The websocket error.
      */
     _onError: function _onError(error) {
-      Strophe$2.error("Websocket error " + error);
-      this._conn._changeConnectStatus(Strophe$2.Status.CONNFAIL, "The WebSocket connection could not be established or was disconnected.");
+      Strophe2$2.error("Websocket error " + error);
+      this._conn._changeConnectStatus(Strophe2$2.Status.CONNFAIL, "The WebSocket connection could not be established or was disconnected.");
       this._disconnect();
     },
     /** PrivateFunction: _onIdle
-     *  _Private_ function called by Strophe.Connection._onIdle
+     *  _Private_ function called by Strophe2.Connection._onIdle
      *
      *  sends all queued stanzas
      */
@@ -73546,7 +73546,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
             } else {
               stanza = data[i];
             }
-            var rawStanza = Strophe$2.serialize(stanza);
+            var rawStanza = Strophe2$2.serialize(stanza);
             this._conn.xmlOutput(stanza);
             this._conn.rawOutput(rawStanza);
             this.socket.send(rawStanza);
@@ -73599,13 +73599,13 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
         var data = this._streamWrap(message.data);
         elem = new DOMParser().parseFromString(data, "text/xml").documentElement;
       }
-      if (this._check_streamerror(elem, Strophe$2.Status.ERROR)) {
+      if (this._check_streamerror(elem, Strophe2$2.Status.ERROR)) {
         return;
       } //handle unavailable presence stanza before disconnecting
 
       if (this._conn.disconnecting && elem.firstChild.nodeName === "presence" && elem.firstChild.getAttribute("type") === "unavailable") {
         this._conn.xmlInput(elem);
-        this._conn.rawInput(Strophe$2.serialize(elem)); // if we are already disconnecting we will ignore the unavailable stanza and
+        this._conn.rawInput(Strophe2$2.serialize(elem)); // if we are already disconnecting we will ignore the unavailable stanza and
         // wait for the </stream:stream> tag before we close the connection
 
         return;
@@ -73618,10 +73618,10 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
      * The opening stream tag is sent here.
      */
     _onOpen: function _onOpen() {
-      Strophe$2.debug("Websocket open");
+      Strophe2$2.debug("Websocket open");
       var start = this._buildStream();
       this._conn.xmlOutput(start.tree());
-      var startString = Strophe$2.serialize(start);
+      var startString = Strophe2$2.serialize(start);
       this._conn.rawOutput(startString);
       this.socket.send(startString);
     },
@@ -73656,7 +73656,7 @@ function _typeof2(o) { "@babel/helpers - typeof"; return _typeof2 = "function" =
       this._conn._onIdle.bind(this._conn)();
     }
   };
-  global$1.Strophe = core.Strophe;
+  global$1.Strophe2 = core.Strophe2;
   global$1.$build = core.$build;
   global$1.$iq = core.$iq;
   global$1.$msg = core.$msg;
@@ -73688,7 +73688,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41421" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34585" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

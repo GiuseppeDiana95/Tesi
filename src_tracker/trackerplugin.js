@@ -43,7 +43,7 @@ class miradorTrackerPlugin extends React.Component
     if (clickedCanvas) 
     {
       console.log('Click on window:', windowId, '- Target:', clickedCanvas.id);
-      axios.post('http://127.0.0.1:3000/click', ClickInfo)
+      //axios.post('http://127.0.0.1:3000/click', ClickInfo)
 
     }
   }
@@ -66,7 +66,7 @@ class miradorTrackerPlugin extends React.Component
     if (clickedCanvas) 
     {
       console.log('Zoom on window:', windowId, '- Target:', clickedCanvas.id);
-      axios.post('http://127.0.0.1:3000/zoom', ZoomInfo)
+      //axios.post('http://127.0.0.1:3000/zoom', ZoomInfo)
 
     }
   }
@@ -92,7 +92,7 @@ class miradorTrackerPlugin extends React.Component
           timestamp: String(new Date())
         };
         console.log('Window Added:',this.state.prevWindowIds[this.state.prevWindowIds?.length -1],' Url:',this.state.canvas.window.canvasId);
-        axios.post('http://127.0.0.1:3000/addwindow', WindowInfo)
+        //axios.post('http://127.0.0.1:3000/addwindow', WindowInfo)
       }
     }
   }
